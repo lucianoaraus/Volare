@@ -1,0 +1,13 @@
+Instructivo / Get Started:
+https://developers.amadeus.com/get-started/get-started-with-self-service-apis-335
+
+API Key / API Secret:
+• API Key: A7TLTRCyzZm9InU9xioAbpXMKw2hmQt4
+• API Secret: jGOGA4M4n1ou1GBK
+https://developers.amadeus.com/my-apps/tourism-react-app-araus?userId=lucianoaraus97@gmail.com
+
+Authorization Document:
+https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262
+
+SDKs / Codigo Util:
+https://github.com/amadeus4dev

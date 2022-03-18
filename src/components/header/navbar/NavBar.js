@@ -1,5 +1,4 @@
-import * as React from "react";
-import Tabs from "@mui/material/Tabs";
+import React from "react";
 import Tab from "@mui/material/Tab";
 
 /*Icons*/
@@ -8,18 +7,13 @@ import Lodges from "@mui/icons-material/Hotel";
 import Packages from "@mui/icons-material/TakeoutDining";
 import Contact from "@mui/icons-material/Phone";
 
-/*Styles */
-import "../App.css";
-
-function NavBar() {
+export default function NavBar() {
   return (
-    <Tabs className="NavBar" aria-label="icon label tabs example" centered>
+    <div className="nav-bar">
       <Tab icon={<Plane />} label="Flights" />
       <Tab icon={<Lodges />} label="Lodges" />
       <Tab icon={<Packages />} label="Packages" />
       <Tab icon={<Contact />} label="Contact" />
-    </Tabs>
+    </div>
   );
 }
-
-export default NavBar;

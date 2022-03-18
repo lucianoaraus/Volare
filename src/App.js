@@ -1,14 +1,15 @@
-import NavBar from "./components/NavBar_Bootstrap";
 import React from "react";
+
+import Header from "./components/header/Header";
+
 import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <NavBar />
+    <div className="app">
+      <Header />
       <h3>Hello Coder-traveler! 😄</h3>
     </div>
   );
 }
 
-export default App;
