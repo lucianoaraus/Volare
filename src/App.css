@@ -1,5 +1,5 @@
 body {
-  background-color: #c8f8de;
+  background-color: #daf8e8;
 }
 
 .app {
@@ -22,8 +22,6 @@ body {
   margin-left: 4px;
   width: 96px;
   height: 48px;
-  
-  background-color: #ff0000;
 }
 
 .header-avatar {
@@ -45,3 +43,18 @@ body {
   overflow: visible;
   padding: 0;
 }
+
+.item-list {
+  display: flex;
+  
+  width: 512px;
+  height: 64px;
+  margin: 8px;
+  
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-color: #e6e3e3;
+}
+
