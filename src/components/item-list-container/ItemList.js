@@ -39,13 +39,20 @@ const ItemList = () =>{
 
   return(
     <div className="item-list">
-      <Card airline={items[0].Airline} origin={items[0].Origin} destiny={items[0].Destiny} seatClass={items[0].SeatClass} baggage={items[0].Baggage} price={items[0].Price} passengers={items[0].Passengers} seats={items[0].Seats}/>
-      {/* <Card airline-name={"Fly Bondi"} origin={"Cordoba, Argentina"} destiny={"Buenos Aires, Argentina"} price={44000} pasages={2}/> */}
-      <Card>
-        <h1>Hola1</h1>
-        <p>Descripcion</p>
-      </Card>
-      <ItemCount seats={items[0].Seats} initial="1"/>
+      <Card
+        airline={items[0].Airline}
+        origin={items[0].Origin}
+        destiny={items[0].Destiny}
+        seatClass={items[0].SeatClass}
+        baggage={items[0].Baggage}
+        price={items[0].Price}
+        passengers={items[0].Passengers}
+        seats={items[0].Seats}
+      />
+      <ItemCount
+        seats={items[0].Seats}
+        initial="1"
+      />
     </div>
   )
 }
