@@ -7,7 +7,7 @@ import Lodges from "@mui/icons-material/Hotel";
 import Packages from "@mui/icons-material/TakeoutDining";
 import Contact from "@mui/icons-material/Phone";
 
-export default function NavBar() {
+const NavBar = () => {
   return (
     <div className="nav-bar">
       <Tab icon={<Plane />} label="Flights" />
@@ -17,3 +17,5 @@ export default function NavBar() {
     </div>
   );
 }
+
+export default NavBar;

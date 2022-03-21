@@ -1,21 +1,31 @@
 import React from "react";
+import './Card.css'
 
-export default function Card(){
+const Card = ({airline, origin, destiny, seatClass, 
+      baggage, price, passengers, stock, children}) => {
+
   return(
-    <div className="card">
-      <h3>Nombre de la aerolinea</h3>
-      <p>Clase en la que se viaja</p>
-      <p>Equipaje elegido</p>
+    <div className="card-item">
+      <h3>{airline}</h3>
+      <p>Class: {seatClass}</p>
+      <p>Baggage: {baggage}</p>
+
       <br/>
-      <p>Origen</p>
-      <p>Aeropuerto de Origen</p>
-      <p>Hora de Salida</p>
+
+      <p>Origin: {origin}</p>
+
       <br/>
-      <p>Destino</p>
-      <p>Aeropuerto de Destino</p>
-      <p>Hora de Llegada</p>
+
+      <p>Destiny: {destiny}</p>
+
       <br/>
-      <p>precio</p>
+
+      <p>Passangers: {passengers}</p>
+      <p>Price: ${price}</p>
+      <button>Buy now</button>
+      <>{children}</>
     </div>
   )
 }
+
+export default Card;

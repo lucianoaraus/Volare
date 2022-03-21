@@ -1,18 +1,20 @@
 import React from "react";
 
 import Header from "./components/header/Header";
-import ItemListContainer from "./components/item-list-container/ItemListContainer"
+import ItemList from "./components/item-list-container/ItemList"
 
 import "./App.css";
 
-export default function App() {
+const App = () => {
   return (
     <div className="app">
       <Header />
       <h3>Welcome to Volare</h3>
       <p>Ready for your next adventure? Travel with Volare 🌍</p>
-      <ItemListContainer/>
+      <ItemList/>
     </div>
   );
 }
+
+export default App;
 
