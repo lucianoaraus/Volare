@@ -1,7 +1,9 @@
 import React from "react";
+import ItemCount from "../item-list-container/ItemCount";
 import './Card.css'
 
-const Card = ({airline, origin, destiny, seatClass, baggage, price, passengers, stock}) => {
+
+const Card = ({airline, origin, destiny, seatClass, baggage, price, passengers, seats}) => {
 
   return(
     <div className="card-item">
@@ -12,6 +14,7 @@ const Card = ({airline, origin, destiny, seatClass, baggage, price, passengers, 
       <p>Destiny: {destiny}</p>
       <p>Passangers: {passengers}</p>
       <p>Price: ${price}</p>
+      <ItemCount seats={seats} initial={1} />
       <button>Buy now</button>
     </div>
   )

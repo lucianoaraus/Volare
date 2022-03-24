@@ -1,5 +1,4 @@
 import React from "react";
-import ItemCount from "./ItemCount";
 import Card from "../card/Card";
 
 import "./ItemList.css";
@@ -50,7 +49,6 @@ const ItemList = () => {
         passengers={items[0].Passengers}
         seats={items[0].Seats}
       />
-      <ItemCount seats={items[0].Seats} initial={1} />
     </div>
   );
 };

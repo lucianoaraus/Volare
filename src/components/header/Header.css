@@ -27,9 +27,10 @@
   right: 128px;
 
   /* Non-Style-Button */
+  margin-top: 16px;
   background: none;
   border: 0;
-  color: gray;
+  color: #808080;
   font: inherit;
   line-height: normal;
   overflow: visible;
