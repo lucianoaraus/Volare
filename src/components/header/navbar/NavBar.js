@@ -1,19 +1,26 @@
 import React from "react";
-import Tab from "@mui/material/Tab";
+import './NavBar.css'
 
-/*Icons*/
-import Plane from "@mui/icons-material/Flight";
-import Booking from "@mui/icons-material/Hotel";
-import Packages from "@mui/icons-material/TakeoutDining";
-import Contact from "@mui/icons-material/Phone";
+//Icons
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import FlightIcon from '@mui/icons-material/Flight';
+import FlashOnIcon from '@mui/icons-material/FlashOn';
+
 
 const NavBar = () => {
   return (
     <div className="nav-bar">
-      <Tab icon={<Plane />} label="Flights" />
-      <Tab icon={<Booking />} label="Booking" />
-      <Tab icon={<Packages />} label="Packages" />
-      <Tab icon={<Contact />} label="Contact" />
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="button-2"><LocationOnIcon/> Booking</button>
+        </li>
+        <li class="nav-item">
+          <button class="button-1"><FlightIcon/> Flights</button>
+        </li>
+        <li class="nav-item">
+          <button class="button-1"><FlashOnIcon/> Packs</button>
+        </li>
+      </ul>
     </div>
   );
 }

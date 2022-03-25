@@ -1,0 +1,28 @@
+.navbar-nav{
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-item{
+  margin: 0 16px;
+}
+
+.button-1{
+  /* Style Null */
+  font-weight: 500;
+
+  border: 0;
+  color: inherit;
+
+  background: none;
+}
+
+.button-2 {
+  /* Style Null */
+  font-weight: 500;
+  
+  border: 0;
+  color: #39D399;
+
+  background: none;
+}
