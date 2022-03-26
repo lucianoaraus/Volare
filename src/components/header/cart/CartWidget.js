@@ -1,13 +1,9 @@
 import React from "react";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import "../Header.css"
 
-const CartWidget = (count) => {
+function CartWidget(count) {
   return (
-    <button className="header-cart-button">
-      
-      <ShoppingCartIcon/>
-      <p>5</p>
-    </button>
+    <button class="button-2">Cart Widget</button>
   );
 }
 

@@ -1,10 +1,12 @@
 import React from "react";
-import './RightSide.css'
+import CartWidget from "../cart/CartWidget";
 
-const RightSide = () => {
+import '../Header.css'
+
+function RightSide (){
   return (
     <div className="right-side-header">
-      <button class="button-2">Cart Widget</button>
+      <CartWidget/>
       <button class="button-3">Sign In</button>
     </div>
   );

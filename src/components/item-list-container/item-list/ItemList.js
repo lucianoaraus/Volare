@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "../card/Card";
+import Card from "../../card/Card"
 
-import "./ItemList.css";
+import "../ItemList.css";
 
-const ItemList = () => {
+function ItemList() {
   const items = [
     {
       Airline: "Aerolineas Argentinas",

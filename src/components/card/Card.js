@@ -1,9 +1,9 @@
 import React from "react";
-import ItemCount from "../item-list-container/ItemCount";
+import ItemCount from "../item-list-container/item-count/ItemCount";
 import './Card.css'
 
 
-const Card = ({airline, origin, destiny, seatClass, baggage, price, passengers, seats}) => {
+function Card ({airline, origin, destiny, seatClass, baggage, price, passengers, seats}) {
 
   return(
     <div className="card-item">

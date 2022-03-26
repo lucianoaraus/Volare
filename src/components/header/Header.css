@@ -2,16 +2,74 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
 
+  height: 72px;
   padding-left: 4px;
   padding-right: 4px;
+
+  font-size: 12px;
+  /* font-weight -> index.html*/
   
   background-color: #fff;
 }
 
 .header-logo {
-  margin-left: 4px;
-  width: 96px;
-  height: 48px;
+  margin-left: 24px;
+  width: 90px;
+  height: 45px;
+}
+
+
+/* NavBar */
+.navbar-nav{
+  flex-direction: row;
+  
+}
+
+.nav-item{
+  margin: 0 16px;
+}
+
+
+
+/* Buttons */
+
+.button-1{
+  /* Style Null */
+  border: 0;
+  color: #757575;
+
+  font-weight: 800;
+
+  background: none;
+}
+
+.button-2 {
+  /* Style Null */  
+  border: 0;
+  color: #39D399;
+
+  font-weight: 800;
+
+  background: none;
+}
+
+.button-3 {
+  /* Sign In */
+  margin: 0 16px;
+  padding: 4px 12px;
+  
+  border: 1px solid #3011BC;
+  border-radius: 6px;
+  
+  color: #3011BC;
+
+  font-weight: 800;
+  
+  background: none;
+}
+
+
+.rotate {
+  transform: rotate(90deg);
 }
