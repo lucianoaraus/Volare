@@ -60,7 +60,6 @@ function ItemListContainer() {
     // llamado de la promesa para obtener los datos
     try {
       const res = await getProducts
-        console.log('res: ', res) // -> comentar
         setProducts(res) // se settea el estado con los datos obtenidos de la promesa
     } catch (error) {
       console.log("Error: ", error)
