@@ -10,15 +10,15 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 function NavBar() {
   return (
     <div className="nav-bar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <button class="button-2"><LocationOnIcon sx={{ fontSize: 18  }}/> Booking</button>
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <button className="button-2"><LocationOnIcon sx={{ fontSize: 18  }}/> Booking</button>
         </li>
-        <li class="nav-item">
-          <button class="button-1"><FlightIcon  className="rotate" sx={{ fontSize: 18  }}/> Flights</button>
+        <li className="nav-item">
+          <button className="button-1"><FlightIcon  className="rotate" sx={{ fontSize: 18  }}/> Flights</button>
         </li>
-        <li class="nav-item">
-          <button class="button-1"><FlashOnIcon sx={{ fontSize: 18  }}/> Packs</button>
+        <li className="nav-item">
+          <button className="button-1"><FlashOnIcon sx={{ fontSize: 18  }}/> Packs</button>
         </li>
       </ul>
     </div>

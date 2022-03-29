@@ -13,13 +13,22 @@
   font-weight: bold;
 }
 
-.headline-text p{
+.headline-subtitle{
   text-align: left;
   width: 330px;
   font-family: 'Volkhov', serif;
   font-size: 32px;
   font-weight: 600;
 }
+
+.headline-detail{
+  text-align: left;
+  width: 330px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
 
 
 .travel-girl {

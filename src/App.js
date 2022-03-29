@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "./components/header/Header";
 import Headline from "./components/headline/Headline";
-import ItemList from "./components/item-list-container/item-list/ItemList"
+import ItemListContainer from "./components/item-list-container/ItemListContainer"
 
 import "./app.css";
 
@@ -12,7 +12,7 @@ function App(){
     <div className="app">
       <Header />
       <Headline/>
-      <ItemList/>
+      <ItemListContainer/>
     </div>
   );
 }

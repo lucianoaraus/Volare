@@ -1,13 +1,18 @@
 import React from "react";
+
 import ItemCount from "../item-list-container/item-count/ItemCount";
-import './Card.css'
+
+import './item.css'
 
 
-function Card ({airline, origin, destiny, seatClass, baggage, price, passengers, seats}) {
+function Item ({data}) {
+  const { airline, origin, destiny, seatClass, baggage, price, passengers, seats } = data
 
-  return(
+  return( 
     <div className="card-item">
+      {console.log('data desde Item: ', data)}
       <h3>{airline}</h3>
+      {console.log('data.airline:', airline)}
       <p>Class: {seatClass}</p>
       <p>Baggage: {baggage}</p>
       <p>Origin: {origin}</p>
@@ -20,4 +25,4 @@ function Card ({airline, origin, destiny, seatClass, baggage, price, passengers,
   )
 }
 
-export default Card;
+export default Item;

@@ -8,9 +8,10 @@ function Headline () {
     <div className="headline">
       <div className="headline-text">
         <h3>Best Destinations around the world</h3>
-        <p>Ready for your next Adventure? Travel with Volare 🌍</p>
+        <p className="headline-subtitle">Ready for your next Adventure? Travel with Volare</p>
+        <p className="headline-detail">Find the Ideal Lodging for your Trip. Compare Prices and Save with Volare! Are you looking for Hotel? Volare</p>
       </div>
-      <img className="travel-girl" src={img}/>
+      <img className="travel-girl" src={img} alt="travel-girl"/>
     </div>
   );
 }

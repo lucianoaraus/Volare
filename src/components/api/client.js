@@ -1,0 +1,32 @@
+import { create } from "apisauce";
+
+// documentation:
+// https://github.com/infinitered/apisauce
+
+// define the api
+const apiClient = create({
+  baseURL: 'https://api.github.com',
+  headers: { Accept: 'application/vnd.github.v3+json' },
+})
+
+// GET method
+// start making calls
+export const apiCall = api
+  .get('/repos/skellock/apisauce/commits')
+  .then(response => response.data[0].commit.message)
+  .then(console.log)
+
+// default timeouts applied:
+const api = create({
+  baseURL: '...',
+  timeout: 30000 // 30 seconds
+}) 
+  
+
+// POST method
+// customizing headers per-request
+api.post('/users', { name: 'steve' }, { headers: { 'x-gigawatts': '1.21' } })
+
+
+
+

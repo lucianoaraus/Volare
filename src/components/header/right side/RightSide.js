@@ -7,7 +7,7 @@ function RightSide (){
   return (
     <div className="right-side-header">
       <CartWidget/>
-      <button class="button-3">Sign In</button>
+      <button className="button-3">Sign In</button>
     </div>
   );
 }

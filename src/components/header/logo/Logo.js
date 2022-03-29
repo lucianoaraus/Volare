@@ -3,7 +3,7 @@ import logo from "../../../assets/volare-logo.png";
 
 function Logo() {
   return (
-    <a href="#">
+    <a href="http://localhost:3000/">
       <img className="header-logo" src={logo} alt="logo"/>
     </a>
   );
