@@ -4,8 +4,9 @@ import ItemList from "../item-list-container/item-list/ItemList"
 
 import "./item-list-container.css";
 
-function ItemListContainer() {
+function ItemListContainer(props) {
 
+  const {callBack} = props
   const [products, setProducts] = useState([])
 
   const mockProducts = [
@@ -71,6 +72,7 @@ function ItemListContainer() {
   return (
     <div className="item-list-container">
       <ItemList products={products}/>
+      <button onClick={() => callBack()} className="button-4">Go Back</button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-import './item-selector.css'
+import './item-selector.css';
 
 //Icons
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -9,7 +9,10 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
 
-function ItemSelector() {
+
+function ItemSelector(props) {
+
+  const {callBack} = props
 
   return (
     <div className="item-selector-container">
@@ -51,7 +54,8 @@ function ItemSelector() {
           <button className="down-arrow">
             <KeyboardArrowDownIcon sx={{ fontSize: 24  }}/>
           </button>
-          <button className="button-4"><SearchIcon sx={{ fontSize: 32  }}/>Search</button>
+          {/* <button onClick={() => callBack(true)} className="button-4"><SearchIcon sx={{ fontSize: 32  }}/>Search</button> */}
+          <button onClick={() => callBack()} className="button-4"><SearchIcon sx={{ fontSize: 32  }}/>Search</button>
         </div>
       </div>
     </div>
