@@ -4,6 +4,7 @@
   align-items: center;
 
   height: 72px;
+  width: -webkit-fill-available;
   padding-left: 4px;
   padding-right: 4px;
 
@@ -23,7 +24,6 @@
 /* NavBar */
 .navbar-nav{
   flex-direction: row;
-  
 }
 
 .nav-item{

@@ -48,22 +48,22 @@ function ItemListContainer() {
   //  - una vez obtenidos los items, se le pasaran al ItemList por props.
 
   // 2. se crea una nueva promesa para obtener los datos del mock despues del timeout
-  const getProducts = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(mockProducts)
-    }, 2000);
-  });
+  const getProducts = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        return resolve(mockProducts)
+      }, 2000);
+    })
+  };
   
 
   // 3. se hace uso del efecto del componente para llamar a la promesa y asi obtener los datos para el estado
-  useEffect( async () => {
-    // llamado de la promesa para obtener los datos
-    try {
-      const res = await getProducts
-        setProducts(res) // se settea el estado con los datos obtenidos de la promesa
-    } catch (error) {
+  useEffect(() => {
+    getProducts().then( (products) => {
+      setProducts(products)
+    }).catch( (error) => {
       console.log("Error: ", error)
-    }
+    })
   },[])
 
   
