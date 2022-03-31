@@ -2,14 +2,21 @@ import React from "react";
 
 import ItemCount from "../item-list-container/item-count/ItemCount";
 
-import './item.css'
+import "./item.css";
 
+function Item({ data }) {
+  const {
+    Airline,
+    Origin,
+    Destiny,
+    SeatClass,
+    Baggage,
+    Price,
+    Passengers,
+    Seats,
+  } = data;
 
-function Item ({data}) {
-  
-  const { Airline, Origin, Destiny, SeatClass, Baggage, Price, Passengers, Seats } = data
-
-  return( 
+  return (
     <div className="card-item">
       <h3>{Airline}</h3>
       <p>Class: {SeatClass}</p>
@@ -20,10 +27,10 @@ function Item ({data}) {
       <p>Price: ${Price}</p>
 
       <ItemCount seats={Seats} initial={1} />
-      
+
       <button>View Details</button>
     </div>
-  )
+  );
 }
 
 export default Item;
