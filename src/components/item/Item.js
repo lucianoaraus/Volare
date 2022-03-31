@@ -21,7 +21,7 @@ function Item ({data}) {
 
       <ItemCount seats={Seats} initial={1} />
       
-      <button>Buy now</button>
+      <button>View Details</button>
     </div>
   )
 }

@@ -12,10 +12,10 @@ function App(){
 
   const [state, setState] = useState(false)
 
-  console.log(state);
-
+  // == handleOpen
   const changeLayout = () => {
     setState(!state)
+    
   }
 
   return (
@@ -23,7 +23,7 @@ function App(){
     <div className="app">
       <Header />
       <Headline/>
-      <h3>CLICK ON THE "SEARCH ICON 🔍" TO SHOW AVAILABLE OPTIONS</h3>
+      <h3>CLICK ON THE <b>"SEARCH ICON"</b> TO SHOW AVAILABLE OPTIONS</h3>
       {
         state? <ItemListContainer callBack={() => changeLayout()}/> : <ItemSelector callBack={() => changeLayout()}/>
       }
