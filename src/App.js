@@ -23,12 +23,11 @@ function App() {
       <h3>
         CLICK ON THE <b>"SEARCH ICON"</b> TO SHOW AVAILABLE OPTIONS
       </h3>
-      {/* {state ? (
-        <ItemListContainer callBack={() => changeLayout()} />
+      {state ? (
+        <ItemDetailContainer callBack={() => changeLayout()} />
       ) : (
         <ItemSelector callBack={() => changeLayout()} />
-      )} */}
-      <ItemDetailContainer />
+      )}
     </div>
   );
 }
