@@ -9,8 +9,7 @@
   padding-right: 4px;
 
   font-size: 12px;
-  /* font-weight -> index.html*/
-  
+
   background-color: #fff;
 }
 
@@ -20,21 +19,18 @@
   height: 45px;
 }
 
-
 /* NavBar */
-.navbar-nav{
+.navbar-nav {
   flex-direction: row;
 }
 
-.nav-item{
+.nav-item {
   margin: 0 16px;
 }
 
-
-
 /* Buttons */
 
-.button-1{
+.button-1 {
   /* Style Null */
   border: 0;
   color: #757575;
@@ -45,9 +41,9 @@
 }
 
 .button-2 {
-  /* Style Null */  
+  /* Style Null */
   border: 0;
-  color: #39D399;
+  color: #39d399;
 
   font-weight: 800;
 
@@ -58,17 +54,16 @@
   /* Sign In */
   margin: 0 16px;
   padding: 4px 12px;
-  
-  border: 1px solid #3011BC;
+
+  border: 1px solid #3011bc;
   border-radius: 6px;
-  
-  color: #3011BC;
+
+  color: #3011bc;
 
   font-weight: 800;
-  
+
   background: none;
 }
-
 
 .rotate {
   transform: rotate(90deg);

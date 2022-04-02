@@ -1,10 +1,11 @@
-.item-selector-container{
+.item-selector-container {
   display: flex;
   justify-content: space-around;
 
   width: 820px;
   height: 96px;
-  
+
+  margin-left: 27%; /* OMF  G CORREGIR ESTO URGENTE */
   margin-top: 36px;
 
   border-radius: 15px;
@@ -13,16 +14,16 @@
   background-color: #fff;
 }
 
-.options-selector{
+.options-selector {
   display: flex;
 
   width: 256px;
-  
+
   align-items: center;
   justify-content: space-around;
 }
 
-.guest-item{
+.guest-item {
   width: 340px;
 }
 
@@ -32,24 +33,24 @@
   margin-top: 12px;
 }
 
-.mid-selector h3{
+.mid-selector h3 {
   font-weight: bold;
-  font-size:large;
-  color: #3011BC;
+  font-size: large;
+  color: #3011bc;
 }
 
-.mid-selector p{
-  font-weight:lighter;
+.mid-selector p {
+  font-weight: lighter;
   font-size: small;
   color: #b4b4b4;
 }
 
-.right-selector{
+.right-selector {
   display: flex;
   align-items: center;
 }
 
-.down-arrow{
+.down-arrow {
   border: 0;
   background: none;
 }
@@ -58,7 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  
+
   width: 128px;
   height: 50px;
 
@@ -66,10 +67,9 @@
   padding: 4px 12px;
   border: 0;
   border-radius: 16px;
-  
-  font-weight:normal;
+
+  font-weight: normal;
   color: #fff;
 
-  background: #3011BC;
+  background: #3011bc;
 }
-
