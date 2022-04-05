@@ -12,7 +12,7 @@ import PackagesItemSelector from "./components/item-selector/PackagesItemSelecto
 import ItemListContainer from "./components/item-list-container/ItemListContainer";
 import ItemDetailContainer from "./components/item-detail-container/ItemDetailContainer";
 
-import "./app.css";
+import "./App.css";
 
 // Consideraciones
 // - La seccion de Booking es la principal por defecto (item del header + buscador)
