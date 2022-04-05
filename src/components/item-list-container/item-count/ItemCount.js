@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import "../item-list-container.css";
 
-function ItemCount({ seats, initial}) {
+function ItemCount({ seats, initial }) {
   const [count, setCount] = useState(initial);
 
   const onAdd = () => {
     if (count < seats) {
       setCount(count + 1);
     } else {
-      console.log("Maximo de asientos alcanzados");
+      alert("Maximo de asientos alcanzados");
     }
   };
 
   const onRemove = () => {
     if (count > 1) {
       setCount(count - 1);
-    } else {
-      console.log("Minimo de asientos alcanzados");
     }
   };
 
@@ -31,6 +29,6 @@ function ItemCount({ seats, initial}) {
       </button>
     </div>
   );
-};
+}
 
 export default ItemCount;

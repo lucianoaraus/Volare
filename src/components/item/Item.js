@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 import ItemCount from "../item-list-container/item-count/ItemCount";
 
 import "./item.css";
@@ -14,6 +15,7 @@ function Item({ data }) {
     Price,
     Passengers,
     Seats,
+    Id,
   } = data;
 
   return (
@@ -28,7 +30,9 @@ function Item({ data }) {
 
       <ItemCount seats={Seats} initial={1} />
 
-      <button>View Details</button>
+      <Link to={`/booking/${Id}`}>
+        <button className="item-detail-button">View Details</button>
+      </Link>
     </div>
   );
 }

@@ -4,8 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer.js";
 import Headline from "./components/headline/Headline";
-import ItemListContainer from "./components/item-list-container/ItemListContainer";
+
 import BookingItemSelector from "./components/item-selector/BookingItemSelector";
+import FlightItemSelector from "./components/item-selector/FlightItemSelector";
+import PackagesItemSelector from "./components/item-selector/PackagesItemSelector";
+
+import ItemListContainer from "./components/item-list-container/ItemListContainer";
 import ItemDetailContainer from "./components/item-detail-container/ItemDetailContainer";
 
 import "./app.css";
@@ -23,22 +27,14 @@ function App() {
       <Header />
       <Headline />
       <Routes>
-        <Route exact path="/" element={<BookingItemSelector />} />{" "}
         {/* La seccion de booking es la home por defecto */}
-        <Route
-          exact
-          path="/booking/items"
-          element={<ItemListContainer />}
-        />{" "}
-        {/* Cuando  */}
-        <Route
-          exact
-          path="/booking/:itemId"
-          element={<ItemDetailContainer />}
-        />
-        <Route exact path="/flights/:itemId" element={<></>} />
-        <Route exact path="/packs/:itemId" element={<></>} />
-        <Route exact path="/login/" element={<></>} />
+        <Route exact path="/" element={<BookingItemSelector />} />
+        <Route exact path="/booking" element={<BookingItemSelector />} />
+        <Route exact path="/flights" element={<FlightItemSelector />} />
+        <Route exact path="/packages" element={<PackagesItemSelector />} />
+        <Route exact path="/booking/items" element={<ItemListContainer />} />
+        <Route exact path="/booking/:id" element={<ItemDetailContainer />} />
+        <Route exact path="/login" element={<></>} /> {/* TODO */}
       </Routes>
       <Footer />
     </BrowserRouter>

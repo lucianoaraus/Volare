@@ -29,9 +29,7 @@
 }
 
 /* Buttons */
-
 .button-1 {
-  /* Style Null */
   border: 0;
   color: #757575;
 
@@ -40,8 +38,11 @@
   background: none;
 }
 
+.button-1:hover {
+  color: #39d399;
+}
+
 .button-2 {
-  /* Style Null */
   border: 0;
   color: #39d399;
 
@@ -51,7 +52,6 @@
 }
 
 .button-3 {
-  /* Sign In */
   margin: 0 16px;
   padding: 4px 12px;
 

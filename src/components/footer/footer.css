@@ -51,11 +51,15 @@ button {
   color: white;
 }
 
-a {
+.footer-button:hover {
+  color: #39d399;
+}
+
+.footer-link {
   color: #fff;
   text-decoration: none;
 }
 
-a:hover {
+.footer-link:hover {
   color: #39d399;
 }

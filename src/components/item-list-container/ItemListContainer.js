@@ -6,8 +6,7 @@ import mockProducts from "../utils/mockProducts";
 
 import "./item-list-container.css";
 
-function ItemListContainer(props) {
-  const { callBack } = props;
+function ItemListContainer() {
   const [products, setProducts] = useState([]);
 
   // TODO:
@@ -36,11 +35,8 @@ function ItemListContainer(props) {
 
   // 1. renderizado del componente -> Es lo primero en realizarlse. Luego pasa por el useEffect
   return (
-    <div className="item-list-container">
+    <div className="item-list-container-parent">
       <ItemList products={products} />
-      <button onClick={() => callBack()} className="button-4">
-        Go Back
-      </button>
     </div>
   );
 }

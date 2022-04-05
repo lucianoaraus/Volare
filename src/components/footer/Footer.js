@@ -2,10 +2,10 @@ import React from "react";
 
 import logo from "../../assets/volare-logo-white.png";
 
+// icons
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import MailIcon from "@mui/icons-material/Mail";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -24,10 +24,18 @@ function Footer() {
     <footer className="footer-container">
       <div className="left-side-container">
         <img src={logo} alt="logo-brand" style={{ marginBottom: 20 }} />
-        <a href="/">About Us</a>
-        <a href="/">Terms & Conditions</a>
-        <a href="/">Privacy</a>
-        <a href="/">FAQs</a>
+        <a className="footer-link" href="/">
+          About Us
+        </a>
+        <a className="footer-link" href="/">
+          Terms & Conditions
+        </a>
+        <a className="footer-link" href="/">
+          Privacy
+        </a>
+        <a className="footer-link" href="/">
+          FAQs
+        </a>
       </div>
       <div className="right-side-container">
         <div className="footer-contact-container">
@@ -43,13 +51,13 @@ function Footer() {
           <p>333, Lorem Street, Albania, California United States of America</p>
         </div>
         <div className="social-media-container">
-          <button>
+          <button className="footer-button">
             <FacebookIcon sx={socialMediaIcon} />
           </button>
-          <button>
+          <button className="footer-button">
             <TwitterIcon sx={socialMediaIcon} />
           </button>
-          <button>
+          <button className="footer-button">
             <InstagramIcon sx={socialMediaIcon} />
           </button>
         </div>

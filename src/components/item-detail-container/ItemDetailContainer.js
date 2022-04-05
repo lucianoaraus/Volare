@@ -6,8 +6,7 @@ import mockProducts from "../utils/mockProducts";
 import "./item-detail-container.css";
 
 function ItemDetailContainer(props) {
-  const { callBack } = props;
-  const [product, setProduct] = useState();
+  const [products, setProducts] = useState();
 
   const getProducts = () => {
     return new Promise((resolve, reject) => {
@@ -19,23 +18,13 @@ function ItemDetailContainer(props) {
 
   useEffect(() => {
     getProducts().then((products) => {
-      const p = products.filter((product) => {
-        return product.Id === 0;
-      });
-      setProduct(p[0]);
+      setProducts(products);
     });
   }, []);
 
   return (
     <div className="item-detail-parent-container">
-      <ItemDetail data={product} />
-      <button
-        onClick={() => callBack()}
-        className="button-3"
-        style={{ marginBottom: 32 }}
-      >
-        Go Back
-      </button>
+      <ItemDetail data={products} />
     </div>
   );
 }
