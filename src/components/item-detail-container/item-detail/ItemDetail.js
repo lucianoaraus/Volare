@@ -1,7 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import loading from "../../../assets/loading.gif";
+import stars from "../../../assets/stars.png";
 import "./item-detail.css";
 
 function ItemDetail(props) {
@@ -12,38 +14,50 @@ function ItemDetail(props) {
 
   return (
     <>
-      {data == undefined ? (
-        <img src={loading} style={{ width: 400, height: 300 }} />
+      {data === undefined ? (
+        <img src={loading} style={{ width: 400, height: 300 }} alt="loading" />
       ) : (
         <div className="item-detail-child-container">
-          <div className="title">
-            <h2>{data[id].Airline}</h2>
-          </div>
-          <div className="sub-title">
-            <p>
-              Origin: <u>{data[id].Origin}</u>
-            </p>
-            <p>
-              Destiny: <u>{data[id].Destiny}</u>
-            </p>
-          </div>
-          <div className="img-container">
-            <img src={data[id].Img} className="img-detail" alt="product-img" />
-          </div>
-          <div className="description-container">
-            <div className="description-left-side">
-              <h3>SeatClass: {data[id].SeatClass}</h3>
-              <p>Passengers: {data[id].Passengers}</p>
-              <p>Baggage: {data[id].Baggage}</p>
+          <div className="left-side-container">
+            <div className="ls-top-container">
+              <img
+                src={data[id].Images[0]}
+                alt="item-detail-img"
+                className="img-detail"
+              />
             </div>
-            <div className="description-right-side">
-              <div className="description-detail-right-side">
-                <h3>$ {data[id].Price}</h3>
-                <button className="button-4" style={{ margin: 0, padding: 0 }}>
-                  Click Me
-                </button>
+            <div className="ls-bottom-container">
+              <div className="mid-side-card-item">
+                <div className="title-mid-side">
+                  <h3>{data[id].HotelName}</h3>
+                  <img src={stars} alt="stars" />
+                </div>
+                <p>
+                  <u>{`${data[id].Location}, ${data[id].Country}`}</u>
+                </p>
+                <br />
+                <p>Capacity: {data[id].Capacity}</p>
+                <p>
+                  <b>{data[id].Type}</b>
+                </p>
+                <br />
+                <br />
+                <p className="class-p">{data[id].Breakfast}</p>
+                <p className="hot-p">Last {data[id].Stock} on this amount</p>
               </div>
             </div>
+          </div>
+          <div className="right-side-container">
+            <div className="rs-top-container">
+              <p>Each night per bedroom</p>
+              <h3>$ {data[id].NightPrice}</h3>
+              <p>Total Price $(totalPrice)</p>
+              <p className="light-p">Taxes included</p>
+              <Link to={`/booking/${data[id].Id}`}>
+                <button className="item-detail-button">View Details</button>
+              </Link>
+            </div>
+            <div className="rs-bottom-container"></div>
           </div>
         </div>
       )}

@@ -22,7 +22,7 @@ const socialMediaIcon = {
 function Footer() {
   return (
     <footer className="footer-container">
-      <div className="left-side-container">
+      <div className="footer-left-side-container">
         <img src={logo} alt="logo-brand" style={{ marginBottom: 20 }} />
         <a className="footer-link" href="/">
           About Us
@@ -37,7 +37,7 @@ function Footer() {
           FAQs
         </a>
       </div>
-      <div className="right-side-container">
+      <div className="footer-right-side-container">
         <div className="footer-contact-container">
           <LocalPhoneIcon sx={{ fontSize: 18 }} />
           <p>+54 11 6123-0472</p>

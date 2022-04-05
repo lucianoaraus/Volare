@@ -11,9 +11,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import "./booking-item-selector.css";
 
-function BookingItemSelector(props) {
-  const { callBack } = props;
-
+function BookingItemSelector() {
   return (
     <div className="item-selector-container">
       <div className="options-selector destination-item">
@@ -55,7 +53,7 @@ function BookingItemSelector(props) {
             <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
           </button>
           <Link to={"/booking/items"}>
-            <button onClick={() => callBack()} className="button-4">
+            <button className="button-4">
               <SearchIcon sx={{ fontSize: 32 }} />
               Search
             </button>

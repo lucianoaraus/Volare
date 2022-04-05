@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import ItemDetail from "./item-detail/ItemDetail";
-import mockProducts from "../utils/mockProducts";
+import mockProductsBooking from "../utils/mockProductsBooking";
 
 import "./item-detail-container.css";
 
@@ -11,7 +11,7 @@ function ItemDetailContainer(props) {
   const getProducts = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        return resolve(mockProducts);
+        return resolve(mockProductsBooking);
       }, 2000);
     });
   };

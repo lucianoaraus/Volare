@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import ItemList from "../item-list-container/item-list/ItemList";
 
-import mockProducts from "../utils/mockProducts";
+import mockProductsBooking from "../utils/mockProductsBooking";
 
 import "./item-list-container.css";
+
+import loading from "../../assets/loading.gif";
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
@@ -17,7 +19,7 @@ function ItemListContainer() {
   const getProducts = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        return resolve(mockProducts);
+        return resolve(mockProductsBooking);
       }, 2000);
     });
   };
@@ -36,7 +38,14 @@ function ItemListContainer() {
   // 1. renderizado del componente -> Es lo primero en realizarlse. Luego pasa por el useEffect
   return (
     <div className="item-list-container-parent">
-      <ItemList products={products} />
+      {products.length === 0 ? (
+        <img src={loading} alt="loading" style={{ width: 400, height: 300 }} />
+      ) : (
+        <>
+          <h3>Made for you</h3>
+          <ItemList products={products} />
+        </>
+      )}
     </div>
   );
 }

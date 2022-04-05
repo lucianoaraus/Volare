@@ -1,28 +1,104 @@
+/* parent container */
 .card-item {
   display: flex;
-  align-items: center;
 
-  flex-direction: column;
-  margin: 4px 0;
-  padding: 8px;
+  width: 1080px;
+  height: 264px;
+  border-radius: 24px;
+  margin: 16px;
 
-  font-size: 12px;
-
-  border-radius: 6px;
+  color: #5e6282;
 
   background-color: #fff;
+  filter: drop-shadow(0px 10px 12px #00000026);
+}
+
+/* left side */
+.left-side-card-item {
+  display: flex;
+
+  border-radius: 24px 0 0 24px;
+}
+
+.left-side-card-item > img {
+  display: flex;
+
+  /* 24,4% del container */
+  width: 264px;
+  height: 264px;
+
+  border-radius: 24px 0 0 24px;
+}
+
+/* mid side */
+.mid-side-card-item {
+  display: flex;
+
+  /* 45,5% del container */
+  width: 492px;
+  height: 264px;
+  margin: 8px 20px;
+
+  flex-direction: column;
+  text-align: left;
+
+  line-height: 0.5;
+}
+
+.title-mid-side {
+  display: flex;
+  font-weight: 800;
+}
+
+.title-mid-side > h3 {
+  font-weight: 600;
+}
+
+.title-mid-side > img {
+  height: 36px;
+  margin-left: 4px;
+}
+
+.mid-side-card-item > .hot-p {
+  color: #d84b4b;
+}
+
+.mid-side-card-item > .class-p {
+  color: #3011bc;
+}
+
+/* right side */
+.right-side-card-item {
+  display: flex;
+  flex-direction: column;
+
+  /* 30% del container */
+  width: 324px;
+  height: 264px;
+
+  justify-content: center;
+  line-height: 0.8;
+}
+
+.right-side-card-item > h3 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.right-side-card-item > .light-p {
+  color: #b7b7b8;
 }
 
 .item-detail-button {
-  width: 82px;
+  width: 164px;
   height: 32px;
 
   margin: 0 8px;
   padding: 2px 6px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 24px;
 
-  font-weight: normal;
+  font-weight: 600;
   color: #fff;
 
   background-color: #3011bc;

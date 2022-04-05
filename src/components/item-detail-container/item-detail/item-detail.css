@@ -1,82 +1,81 @@
 .item-detail-child-container {
   display: flex;
+  flex-direction: row;
+
+  width: 1000px;
+  height: 700px;
+
+  margin-bottom: 32px;
+
+  color: #5e6282;
+
+  border-radius: 24px 2.5px 24px 2.5px;
+  filter: drop-shadow(0px 10px 12px #00000026);
+}
+
+/* ls parent */
+.left-side-container {
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width: 58%;
-  margin-bottom: 32px;
-
-  filter: drop-shadow(0px 10px 12px rgba(0, 0, 0, 0.15));
+  width: 70%;
+  border-radius: 0px 0px 0px 2.5px;
 }
 
-.title {
-  display: flex;
-  align-items: flex-start;
-
-  width: 100%;
-
-  font-weight: bold;
+/* ls top */
+.ls-top-container {
+  height: 60%;
+  border-radius: 24px 0;
 }
 
-.sub-title {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  width: 100%;
-
-  font-weight: lighter;
-  color: #6b6b6b;
-}
-
-.img-container {
-  display: flex;
-  width: 100%;
-  height: 512px;
-  margin-top: 16px;
-  margin-bottom: 32px;
-}
-
-.img-detail {
+.ls-top-container > .img-detail {
   width: 100%;
   height: 100%;
-  border-radius: 6px;
+  border-radius: 24px 0 0;
 }
 
-.description-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 200px;
-}
-
-.description-left-side {
+/* ls bottom */
+.ls-bottom-container {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  text-align: left;
+
+  line-height: 0.5;
+  height: 40%;
+  background-color: #fff;
+  border-radius: 0px 0px 0px 2.5px;
 }
 
-.description-right-side {
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  width: 250px;
-}
-
-.description-detail-right-side {
+/* rs parent */
+.right-side-container {
   display: flex;
   flex-direction: column;
 
-  align-items: center;
-
-  width: 80%;
-  height: 200px;
+  width: 30%;
+  border-radius: 0px 2.5px 24px 0px;
+  background-color: #e5e5e5;
 }
 
-.button-5 {
-  width: 100%;
-  border-radius: 6px;
-  border: 1 rgb(211, 211, 211);
+/* rs top */
+.rs-top-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 60%;
+  border-radius: 0px 2.5px 0px 0px;
+}
+
+.rs-top-container > h3 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.rs-top-container > .light-p {
+  color: #a7a7a7;
+}
+
+/* rs bottom */
+.rs-bottom-container {
+  height: 40%;
+  border-radius: 0px 0px 24px 0px;
 }

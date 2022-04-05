@@ -12,19 +12,19 @@
   background-color: #3011bc;
 }
 
-.left-side-container {
+.footer-left-side-container {
   display: flex;
   flex-direction: column;
 
   margin-top: 64px;
 }
 
-.left-side-container img {
+.footer-left-side-container img {
   width: 90px;
   height: 45px;
 }
 
-.right-side-container {
+.footer-right-side-container {
   display: flex;
   flex-direction: column;
 
