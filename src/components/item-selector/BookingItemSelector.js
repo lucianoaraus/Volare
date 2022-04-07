@@ -1,5 +1,7 @@
 import React from "react";
 
+import MenuGuests from "../menu/MenuGuests";
+
 import { Link } from "react-router-dom";
 
 //Icons
@@ -14,39 +16,71 @@ import "./booking-item-selector.css";
 function BookingItemSelector() {
   return (
     <div className="item-selector-container">
-      <div className="options-selector destination-item">
+      <div
+        className="options-selector destination-item"
+        role="button"
+        onClick={() => console.log("Entro boton del div")}
+      >
         <div className="left-selector">
           <LocationOnIcon sx={{ fontSize: 32 }} />
         </div>
         <div className="mid-selector">
           <h3>Destinations</h3>
-          <p>Where are you going?</p>
+          <input
+            type="text"
+            id="nombre"
+            placeholder="Where are you going?"
+          ></input>
         </div>
         <button className="down-arrow">
           <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
         </button>
       </div>
 
-      <div className="options-selector date-item">
+      <div
+        className="options-selector date-item"
+        role="button"
+        onClick={() => console.log("Entro boton del div")}
+      >
         <div className="left-selector">
           <CalendarMonthIcon sx={{ fontSize: 32 }} />
         </div>
         <div className="mid-selector">
-          <h3>When</h3>
-          <p>Date from</p>
+          <h3>Check-in</h3>
+          <p>Add dates</p>
         </div>
         <button className="down-arrow">
           <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
         </button>
       </div>
 
-      <div className="options-selector guest-item">
+      <div
+        className="options-selector date-item"
+        role="button"
+        onClick={() => console.log("Entro boton del div")}
+      >
+        <div className="left-selector">
+          <CalendarMonthIcon sx={{ fontSize: 32 }} />
+        </div>
+        <div className="mid-selector">
+          <h3>Check-out</h3>
+          <p>Add dates</p>
+        </div>
+        <button className="down-arrow">
+          <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
+        </button>
+      </div>
+
+      <div
+        className="options-selector guest-item"
+        role="button"
+        onClick={() => console.log("Entro boton del div")}
+      >
         <div className="left-selector">
           <PersonOutlineIcon sx={{ fontSize: 32 }} />
         </div>
         <div className="mid-selector">
-          <h3>Guests</h3>
-          <p>0</p>
+          <MenuGuests />
         </div>
         <div className="right-selector">
           <button className="down-arrow">

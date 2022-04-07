@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./flight-item-selector.css";
-
 //Icons
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import FlightLandIcon from "@mui/icons-material/FlightLand";

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../item-list-container.css";
 
 function ItemCount({ seats, initial }) {
-  const [count, setCount] = useState(initial);
+  const [count, setCount] = useState(0);
 
   const onAdd = () => {
     if (count < seats) {
@@ -20,10 +20,11 @@ function ItemCount({ seats, initial }) {
 
   return (
     <div className="item-count">
+      <b>Adults: </b>
       <button className="button-count" onClick={onRemove}>
         -
       </button>
-      <p>amount: {count}</p>
+      <p>{count}</p>
       <button className="button-count" onClick={onAdd}>
         +
       </button>

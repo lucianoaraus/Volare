@@ -20,3 +20,13 @@ a:hover {
   font-style: none;
   text-decoration: none;
 }
+
+input {
+  border: 0;
+  background-color: none;
+}
+
+input:hover {
+  border: 0;
+  background-color: #f8f8f8; /* FIX THIS */
+}
