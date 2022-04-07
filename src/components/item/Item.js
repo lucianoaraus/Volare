@@ -22,6 +22,7 @@ function Item({ data }) {
     Stock,
     Capacity,
     Images,
+    Category,
   } = data;
 
   const totalPrice = () => {

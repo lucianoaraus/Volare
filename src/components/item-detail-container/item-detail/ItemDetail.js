@@ -9,7 +9,7 @@ import "./item-detail.css";
 function ItemDetail(props) {
   const { data } = props;
 
-  // obtiene el id por la URL
+  // lo podemos utilizar para leer en js los parámetros de la ruta, en este caso, obtiene el id por la URL
   const { id } = useParams();
 
   return (

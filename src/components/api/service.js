@@ -7,8 +7,8 @@
 var Amadeus = require("amadeus");
 
 var amadeus = new Amadeus({
-  clientId: "A7TLTRCyzZm9InU9xioAbpXMKw2hmQt4",
-  clientSecret: "jGOGA4M4n1ou1GBK",
+  clientId: "", // must be secret
+  clientSecret: "", // must be secret
 });
 
 // ejemplo
@@ -19,9 +19,9 @@ amadeus.shopping.flightOffersSearch
     departureDate: "2022-06-01",
     adults: "2",
   })
-  .then(function(response) {
+  .then(function (response) {
     console.log(response.data);
   })
-  .catch(function(responseError) {
+  .catch(function (responseError) {
     console.log(responseError.code);
   });

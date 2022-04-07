@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import ItemList from "../item-list-container/item-list/ItemList";
 
-import mockProductsBooking from "../utils/mockProductsBooking";
+import mockProducts from "../utils/mockProducts";
 
 import "./item-list-container.css";
 
@@ -19,7 +19,7 @@ function ItemListContainer() {
   const getProducts = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        return resolve(mockProductsBooking);
+        return resolve(mockProducts);
       }, 2000);
     });
   };
@@ -35,15 +35,22 @@ function ItemListContainer() {
       });
   }, []);
 
+  const filterByCategory = (cat) => {
+    //recibe un Str con la categoria a filtrar
+    let arrFiltered = [];
+    arrFiltered = products.filter((p) => p.Category === cat);
+    return arrFiltered;
+  };
+
   // 1. renderizado del componente -> Es lo primero en realizarlse. Luego pasa por el useEffect
   return (
     <div className="item-list-container-parent">
-      {products.length === 0 ? (
+      {filterByCategory("Booking") === 0 ? (
         <img src={loading} alt="loading" style={{ width: 400, height: 300 }} />
       ) : (
         <>
           <h3>Made for you</h3>
-          <ItemList products={products} />
+          <ItemList products={filterByCategory("Booking")} />
         </>
       )}
     </div>
