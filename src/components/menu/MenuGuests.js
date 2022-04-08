@@ -1,6 +1,7 @@
-import * as React from "react";
+import React, { useContext } from "react";
 
 import ItemCount from "../item-list-container/item-count/ItemCount";
+import BookingQueryContext from "../context/BookingQueryContext";
 
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -9,6 +10,8 @@ import MenuItem from "@mui/material/MenuItem";
 import "./menu-guest.css";
 
 export default function BasicMenu() {
+  const { guestsQuantity } = useContext(BookingQueryContext);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -16,7 +19,6 @@ export default function BasicMenu() {
   };
   const handleClose = (e) => {
     setAnchorEl(null);
-    console.log("Entro el evento del menu");
   };
 
   return (
@@ -30,7 +32,7 @@ export default function BasicMenu() {
         className="menu-guest-button"
       >
         <h3>Guests</h3>
-        <p>Add guests</p>
+        {guestsQuantity > 0 ? guestsQuantity : <p>Add guests</p>}
       </Button>
       <Menu
         id="basic-menu"
@@ -41,7 +43,7 @@ export default function BasicMenu() {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem /* onClick={handleClose} */>
           <ItemCount />
         </MenuItem>
       </Menu>

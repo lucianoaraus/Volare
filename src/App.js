@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+
+import { BookingQueryProvider } from "./components/context/BookingQueryContext";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/header/Header";
@@ -23,21 +26,23 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Headline />
-      <Routes>
-        {/* La seccion de booking es la home por defecto */}
-        <Route exact path="/" element={<BookingItemSelector />} />
-        <Route exact path="/booking" element={<BookingItemSelector />} />
-        <Route exact path="/flights" element={<FlightItemSelector />} />
-        <Route exact path="/packages" element={<PackagesItemSelector />} />
-        <Route exact path="/booking/items" element={<ItemListContainer />} />
-        <Route exact path="/booking/:id" element={<ItemDetailContainer />} />
-        <Route exact path="/login" element={<></>} /> {/* TODO */}
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <BookingQueryProvider>
+      <BrowserRouter>
+        <Header />
+        <Headline />
+        <Routes>
+          {/* La seccion de booking es la home por defecto */}
+          <Route exact path="/" element={<BookingItemSelector />} />
+          <Route exact path="/booking" element={<BookingItemSelector />} />
+          <Route exact path="/flights" element={<FlightItemSelector />} />
+          <Route exact path="/packages" element={<PackagesItemSelector />} />
+          <Route exact path="/booking/items" element={<ItemListContainer />} />
+          <Route exact path="/booking/:id" element={<ItemDetailContainer />} />
+          <Route exact path="/login" element={<></>} /> {/* TODO */}
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </BookingQueryProvider>
   );
 }
 

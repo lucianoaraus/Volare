@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import BookingQueryContext from "../../context/BookingQueryContext";
+
 import "../item-list-container.css";
 
-function ItemCount({ seats, initial }) {
-  const [count, setCount] = useState(0);
+function ItemCount() {
+  const { guestsQuantity, addGuestsToQuery, removeGuestsFromQuery } =
+    useContext(BookingQueryContext);
+
+  const [count, setCount] = useState(guestsQuantity);
 
   const onAdd = () => {
-    if (count < seats) {
-      setCount(count + 1);
-    } else {
-      alert("Maximo de asientos alcanzados");
-    }
+    setCount(count + 1);
+    addGuestsToQuery();
   };
 
   const onRemove = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
+    setCount(count - 1);
+    removeGuestsFromQuery();
   };
 
   return (

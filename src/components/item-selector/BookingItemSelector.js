@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import MenuGuests from "../menu/MenuGuests";
+import BookingQueryContext from "../context/BookingQueryContext";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 //Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -14,13 +15,18 @@ import SearchIcon from "@mui/icons-material/Search";
 import "./booking-item-selector.css";
 
 function BookingItemSelector() {
+  const { guestsQuantity } = useContext(BookingQueryContext);
+  const navigate = useNavigate();
+
+  const notGuestsEnought = () => {
+    guestsQuantity < 1
+      ? alert("You must to add a valid quantity of Guests (2 for example)")
+      : navigate("/booking/items");
+  };
+
   return (
     <div className="item-selector-container">
-      <div
-        className="options-selector destination-item"
-        role="button"
-        onClick={() => console.log("Entro boton del div")}
-      >
+      <div className="options-selector destination-item" role="button">
         <div className="left-selector">
           <LocationOnIcon sx={{ fontSize: 32 }} />
         </div>
@@ -37,11 +43,7 @@ function BookingItemSelector() {
         </button>
       </div>
 
-      <div
-        className="options-selector date-item"
-        role="button"
-        onClick={() => console.log("Entro boton del div")}
-      >
+      <div className="options-selector date-item" role="button">
         <div className="left-selector">
           <CalendarMonthIcon sx={{ fontSize: 32 }} />
         </div>
@@ -54,11 +56,7 @@ function BookingItemSelector() {
         </button>
       </div>
 
-      <div
-        className="options-selector date-item"
-        role="button"
-        onClick={() => console.log("Entro boton del div")}
-      >
+      <div className="options-selector date-item" role="button">
         <div className="left-selector">
           <CalendarMonthIcon sx={{ fontSize: 32 }} />
         </div>
@@ -71,11 +69,7 @@ function BookingItemSelector() {
         </button>
       </div>
 
-      <div
-        className="options-selector guest-item"
-        role="button"
-        onClick={() => console.log("Entro boton del div")}
-      >
+      <div className="options-selector guest-item" role="button">
         <div className="left-selector">
           <PersonOutlineIcon sx={{ fontSize: 32 }} />
         </div>
@@ -86,12 +80,11 @@ function BookingItemSelector() {
           <button className="down-arrow">
             <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
           </button>
-          <Link to={"/booking/items"}>
-            <button className="button-4">
-              <SearchIcon sx={{ fontSize: 32 }} />
-              Search
-            </button>
-          </Link>
+
+          <button className="button-4" onClick={notGuestsEnought}>
+            <SearchIcon sx={{ fontSize: 32 }} />
+            Search
+          </button>
         </div>
       </div>
     </div>
