@@ -53,8 +53,8 @@ function ItemDetail(props) {
               <h3>$ {data[id].NightPrice}</h3>
               <p>Total Price $(totalPrice)</p>
               <p className="light-p">Taxes included</p>
-              <Link to={`/booking/${data[id].Id}`}>
-                <button className="item-detail-button">View Details</button>
+              <Link to={"/cart"}>
+                <button className="item-detail-button">Reserve</button>
               </Link>
             </div>
             <div className="rs-bottom-container"></div>

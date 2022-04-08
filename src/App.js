@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer.js";
 import Headline from "./components/headline/Headline";
+import Cart from "./components/cart/Cart";
 
 import BookingItemSelector from "./components/item-selector/BookingItemSelector";
 import FlightItemSelector from "./components/item-selector/FlightItemSelector";
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/booking/items" element={<ItemListContainer />} />
           <Route exact path="/booking/:id" element={<ItemDetailContainer />} />
           <Route exact path="/login" element={<></>} /> {/* TODO */}
+          <Route exact path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </BrowserRouter>

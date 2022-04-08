@@ -19,9 +19,12 @@ function BookingItemSelector() {
   const navigate = useNavigate();
 
   const notGuestsEnought = () => {
-    guestsQuantity < 1
-      ? alert("You must to add a valid quantity of Guests (2 for example)")
-      : navigate("/booking/items");
+    // TODO: Arreglar esto
+    0 < guestsQuantity && guestsQuantity < 5
+      ? navigate("/booking/items")
+      : alert(
+          "You must to add a valid quantity of Guests (for example 2 or 4)"
+        );
   };
 
   return (
