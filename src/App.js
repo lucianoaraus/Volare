@@ -9,7 +9,6 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer.js";
 import Headline from "./components/headline/Headline";
 import Cart from "./components/cart/Cart";
-import BasicDateRangePicker from "./components/date/BasicDateRangePicker";
 
 import BookingItemSelector from "./components/item-selector/BookingItemSelector";
 import FlightItemSelector from "./components/item-selector/FlightItemSelector";
@@ -40,7 +39,7 @@ function App() {
             <Route exact path="/booking" element={<BookingItemSelector />} />
             <Route exact path="/flights" element={<FlightItemSelector />} />
             <Route exact path="/packages" element={<PackagesItemSelector />} />
-            <Route exact path="/date" element={<BasicDateRangePicker />} />
+            <Route exact path="/date" element={<></>} />
             <Route
               exact
               path="/booking/items"
