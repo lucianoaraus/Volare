@@ -4,7 +4,6 @@ const BookingQueryContext = createContext();
 
 const BookingQueryProvider = ({ children }) => {
   const [guestsQuantity, setguestsQuantity] = useState(0);
-  //const [destination, setDestination] = useState("");
 
   const addGuestsToQuery = () => {
     setguestsQuantity(guestsQuantity + 1);
@@ -14,7 +13,12 @@ const BookingQueryProvider = ({ children }) => {
     setguestsQuantity(guestsQuantity - 1);
   };
 
-  const data = { guestsQuantity, addGuestsToQuery, removeGuestsFromQuery };
+  const data = {
+    // guests:
+    guestsQuantity,
+    addGuestsToQuery,
+    removeGuestsFromQuery,
+  };
 
   return (
     <BookingQueryContext.Provider value={data}>

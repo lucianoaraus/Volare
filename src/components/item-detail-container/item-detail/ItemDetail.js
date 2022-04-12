@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import CartWidgetContext from "../../context/CartWidgetContext";
 import loading from "../../../assets/loading.gif";
 import stars from "../../../assets/stars.png";
 import "./item-detail.css";
 
 function ItemDetail(props) {
   const { data } = props;
+  const { reserveInt, addReserveToCart, removeReserveFromCart } =
+    useContext(CartWidgetContext);
 
   // lo podemos utilizar para leer en js los parámetros de la ruta, en este caso, obtiene el id por la URL
   const { id } = useParams();
@@ -54,7 +57,12 @@ function ItemDetail(props) {
               <p>Total Price $(totalPrice)</p>
               <p className="light-p">Taxes included</p>
               <Link to={"/cart"}>
-                <button className="item-detail-button">Reserve</button>
+                <button
+                  onClick={() => addReserveToCart(data[id])}
+                  className="item-detail-button"
+                >
+                  Reserve
+                </button>
               </Link>
             </div>
             <div className="rs-bottom-container"></div>

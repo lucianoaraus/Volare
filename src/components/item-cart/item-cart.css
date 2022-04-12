@@ -1,0 +1,25 @@
+.cart-item-detail {
+  display: flex;
+
+  width: 650px;
+  margin-left: 32%; /* ARREGLAR ESTO */
+  margin-bottom: 32px;
+
+  justify-content: center;
+  flex-direction: row;
+
+  border-radius: 12px;
+}
+
+.cart-item-detail-left-side-container {
+  width: 70%;
+  padding-top: 12px;
+  border-radius: 12px 0 0 12px;
+  background-color: #f0f8ff;
+}
+
+.cart-item-detail-right-side-container {
+  width: 30%;
+  padding-top: 12px;
+  background-color: #fdfcf4;
+}
