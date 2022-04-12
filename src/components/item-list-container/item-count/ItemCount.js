@@ -15,8 +15,10 @@ function ItemCount() {
   };
 
   const onRemove = () => {
-    setCount(count - 1);
-    removeGuestsFromQuery();
+    if (count > 0) {
+      setCount(count - 1);
+      removeGuestsFromQuery();
+    }
   };
 
   return (
