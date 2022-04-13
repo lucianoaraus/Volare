@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 
 import MenuGuests from "../menu/MenuGuests";
 import BookingQueryContext from "../context/BookingQueryContext";
+import DatePickerSelector from "../date-picker/DatePickerSelector";
 
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -52,7 +53,7 @@ function BookingItemSelector() {
         </div>
         <div className="mid-selector">
           <h3>Check-in</h3>
-          <p>Add dates</p>
+          <DatePickerSelector />
         </div>
         <button className="down-arrow">
           <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
@@ -65,7 +66,7 @@ function BookingItemSelector() {
         </div>
         <div className="mid-selector">
           <h3>Check-out</h3>
-          <p>Add dates</p>
+          <DatePickerSelector />
         </div>
         <button className="down-arrow">
           <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
