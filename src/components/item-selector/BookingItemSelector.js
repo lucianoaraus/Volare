@@ -30,67 +30,70 @@ function BookingItemSelector() {
 
   return (
     <div className="item-selector-container">
-      <div className="options-selector destination-item" role="button">
-        <div className="left-selector">
-          <LocationOnIcon sx={{ fontSize: 32 }} />
-        </div>
-        <div className="mid-selector">
-          <h3>Destinations</h3>
-          <input
-            type="text"
-            id="nombre"
-            placeholder="Where are you going?"
-          ></input>
-        </div>
-        <button className="down-arrow">
-          <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
-        </button>
-      </div>
-
-      <div className="options-selector date-item" role="button">
-        <div className="left-selector">
-          <CalendarMonthIcon sx={{ fontSize: 32 }} />
-        </div>
-        <div className="mid-selector">
-          <h3>Check-in</h3>
-          <DatePickerSelector />
-        </div>
-        <button className="down-arrow">
-          <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
-        </button>
-      </div>
-
-      <div className="options-selector date-item" role="button">
-        <div className="left-selector">
-          <CalendarMonthIcon sx={{ fontSize: 32 }} />
-        </div>
-        <div className="mid-selector">
-          <h3>Check-out</h3>
-          <DatePickerSelector />
-        </div>
-        <button className="down-arrow">
-          <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
-        </button>
-      </div>
-
-      <div className="options-selector guest-item" role="button">
-        <div className="left-selector">
-          <PersonOutlineIcon sx={{ fontSize: 32 }} />
-        </div>
-        <div className="mid-selector">
-          <MenuGuests />
-        </div>
-        <div className="right-selector">
+      <div className="options-selector">
+        <div className="destination-item" role="button">
+          <div className="left-selector">
+            <LocationOnIcon sx={{ fontSize: 32 }} />
+          </div>
+          <div className="mid-selector">
+            <h3>Destinations</h3>
+            <input
+              type="text"
+              id="nombre"
+              placeholder="Where are you going?"
+            ></input>
+          </div>
           <button className="down-arrow">
             <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
           </button>
+        </div>
 
-          <button className="button-4" onClick={notGuestsEnought}>
-            <SearchIcon sx={{ fontSize: 32 }} />
-            Search
+        <div className="date-item" role="button">
+          <div className="left-selector">
+            <CalendarMonthIcon sx={{ fontSize: 32 }} />
+          </div>
+          <div className="mid-selector">
+            <h3>Check-in</h3>
+            <DatePickerSelector />
+          </div>
+          <button className="down-arrow">
+            <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
           </button>
         </div>
+
+        <div className="date-item" role="button">
+          <div className="left-selector">
+            <CalendarMonthIcon sx={{ fontSize: 32 }} />
+          </div>
+          <div className="mid-selector">
+            <h3>Check-out</h3>
+            <DatePickerSelector />
+          </div>
+          <button className="down-arrow">
+            <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
+          </button>
+        </div>
+
+        <div className="guest-item" role="button">
+          <div className="left-selector">
+            <PersonOutlineIcon sx={{ fontSize: 32 }} />
+          </div>
+          <div className="mid-selector">
+            <MenuGuests />
+          </div>
+          <div className="right-selector">
+            <button className="down-arrow">
+              <KeyboardArrowDownIcon sx={{ fontSize: 24 }} />
+            </button>
+
+            <button className="button-4" onClick={notGuestsEnought}>
+              <SearchIcon sx={{ fontSize: 32 }} />
+              Search
+            </button>
+          </div>
+        </div>
       </div>
+      
     </div>
   );
 }

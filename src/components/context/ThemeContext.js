@@ -8,7 +8,6 @@ const ThemeProvider = ({ children }) => {
   // para usar en el switch
   const handleTheme = () => {
     setLightTheme(!lightTheme);
-    console.log("Funcion desde contexto");
   };
 
   const data = {

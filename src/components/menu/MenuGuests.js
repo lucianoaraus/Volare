@@ -32,7 +32,8 @@ export default function BasicMenu() {
         className="menu-guest-button"
       >
         <h3>Guests</h3>
-        {guestsQuantity > 0 ? guestsQuantity : <p>Add guests</p>}
+        {guestsQuantity > 0 ? <p>{guestsQuantity}</p> : <p>Add guests</p>}
+        
       </Button>
       <Menu
         id="basic-menu"

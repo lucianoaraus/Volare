@@ -1,56 +1,51 @@
 .item-selector-container {
   display: flex;
+  
+  align-items: center;
+  justify-content: center;
 
-  width: 920px;
-  height: 96px;
-
-  margin-left: 27%; /* OMFG CORREGIR ESTO URGENTE */
-  margin-top: 36px;
-  margin-bottom: 86px;
-
-  padding: 0 24px;
-
-  border-radius: 48px;
-  filter: drop-shadow(0px 10px 12px #00000026);
-
-  background-color: #fff;
+  height: 180px;
 }
 
 .destination-item {
   border-radius: 48px 0 0 48px;
 }
 
-.guest-item {
-  border-radius: 0 48px 48px 0;
-}
-
-.guest-item > .mid-selector {
-  width: 68px;
-}
-
 .options-selector {
   display: flex;
-
-  width: 256px;
-
+  
+  width: 920px;
+  height: 78px;
+  
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  text-align: center;
+
+  border-radius: 48px;
+  filter: drop-shadow(0px 10px 12px #00000026);
+  background-color: #fff;
 }
 
-.options-selector:hover {
-  /* Corregir estilo del margin-left y margin-right */
+.destination-item, .date-item, .guest-item {
+  display: flex;
+  align-items: center;
+  text-align:left;
+  
+  height: 67px;
+}
+
+.destination-item:hover, .date-item:hover, .guest-item:hover{
   background-color: #f8f8f8;
   border-radius: 48px;
 }
 
-.guest-item {
-  width: 340px;
+.guest-item > .mid-selector {
+  width: 82px;
 }
 
 .mid-selector {
   display: flex;
   flex-direction: column;
-  margin-top: 12px;
 }
 
 .mid-selector h3 {
@@ -73,4 +68,5 @@
 .down-arrow {
   border: 0;
   background: none;
+  color: #5f5f5f;
 }

@@ -15,8 +15,6 @@ const CartWidgetProvider = ({ children }) => {
     );
   };
 
-  console.log("ReserveInt Array desde CartWidgetContext: ", reserveInt);
-
   const reservesData = {
     // reserves:
     reserveInt,

@@ -3,7 +3,8 @@ import React from "react";
 import { BookingQueryProvider } from "./components/context/BookingQueryContext";
 import { CartWidgetProvider } from "./components/context/CartWidgetContext";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer.js";
@@ -24,7 +25,9 @@ import "./App.css";
 // Precondiciones
 // - Si se quiere cambiar de seccion (desde el header), se cambiara el color del item seleccionado y el buscador se reemplazara (con una transicion lateral) por el buscador respectivo
 // - Si se cambia de seccion, la ruta debe seguir siendo la misma ("/")
-// - Si se selecciona u n item de la itemList, se debe ir al itemDetail del producto seleccionado (/categories/:itemId)
+// - Si se selecciona un item de la itemList, se debe ir al itemDetail del producto seleccionado (/categories/:itemId)
+
+
 
 function App() {
   return (
@@ -32,7 +35,7 @@ function App() {
       <BookingQueryProvider>
         <BrowserRouter>
           <Header />
-          <Headline />
+          <Headline />  
           <Routes>
             <Route exact path="/" element={<BookingItemSelector />} />
             <Route exact path="/booking" element={<BookingItemSelector />} />
