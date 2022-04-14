@@ -23,7 +23,7 @@ function ItemCount() {
 
   return (
     <div className="item-count">
-      <b>Adults: </b>
+      <p>Adults: </p>
       <button className="button-count" onClick={onRemove}>
         -
       </button>

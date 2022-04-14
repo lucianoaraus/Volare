@@ -22,6 +22,7 @@
 
 .item-count {
   display: flex;
+  font-family: "Titillium Web", sans-serif;
 
   margin: 4px;
   padding: 0 8px;
