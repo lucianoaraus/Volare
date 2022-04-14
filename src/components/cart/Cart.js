@@ -4,6 +4,7 @@ import ItemCart from "../item-cart/ItemCart";
 
 function Cart() {
   const { reserveInt } = useContext(CartWidgetContext);
+  //TODO: localStorage
 
   return (
     <div style={{ textAlign: "center" }}>
