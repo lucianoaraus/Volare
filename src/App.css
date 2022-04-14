@@ -22,8 +22,10 @@ a:hover {
 }
 
 input {
-  border: 0;
-  background-color: none;
+  border: none;
+  background: none;
+  outline: none;
+
 }
 
 input:hover {
