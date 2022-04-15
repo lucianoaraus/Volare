@@ -3,17 +3,18 @@ import React from "react";
 import { BookingQueryProvider } from "./components/context/BookingQueryContext";
 import { CartWidgetProvider } from "./components/context/CartWidgetContext";
 
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer.js";
-import Headline from "./components/headline/Headline";
 import Cart from "./components/cart/Cart";
 
-import BookingItemSelector from "./components/item-selector/BookingItemSelector";
-import FlightItemSelector from "./components/item-selector/FlightItemSelector";
-import PackagesItemSelector from "./components/item-selector/PackagesItemSelector";
+// pages
+import Booking from "./components/pages/Booking"
+import Flights from "./components/pages/Flights"
+import Packages from "./components/pages/Packages"
+
 
 import ItemListContainer from "./components/item-list-container/ItemListContainer";
 import ItemDetailContainer from "./components/item-detail-container/ItemDetailContainer";
@@ -35,12 +36,12 @@ function App() {
       <BookingQueryProvider>
         <BrowserRouter>
           <Header />
-          <Headline />  
           <Routes>
-            <Route exact path="/" element={<BookingItemSelector />} />
-            <Route exact path="/booking" element={<BookingItemSelector />} />
-            <Route exact path="/flights" element={<FlightItemSelector />} />
-            <Route exact path="/packages" element={<PackagesItemSelector />} />
+            <Route exact path="/login" element={<></>} /> {/* TODO */}
+            <Route exact path="/" element={<Booking />} />
+            <Route exact path="/booking" element={<Booking />} />
+            <Route exact path="/flights" element={<Flights />} />
+            <Route exact path="/packages" element={<Packages />} />
             <Route
               exact
               path="/booking/items"
@@ -51,8 +52,7 @@ function App() {
               path="/booking/:id"
               element={<ItemDetailContainer />}
             />
-            <Route exact path="/login" element={<></>} /> {/* TODO */}
-            <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/cart" element={<Cart />} /> {/* WIP */}
           </Routes>
           <Footer />
         </BrowserRouter>

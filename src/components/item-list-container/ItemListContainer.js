@@ -43,15 +43,15 @@ function ItemListContainer() {
     return arrFiltered;
   };
 
+
   return (
     <div className="item-list-container-parent">
+      <h3>Made for you</h3>
       {filterByCategory("Booking").lenght === 0 ? (
+        /* Arreglar: funciona la logica pero no renderiza el spinner */
         <img src={loading} alt="loading" style={{ width: 400, height: 300 }} />
       ) : (
-        <>
-          <h3>Made for you</h3>
           <ItemList products={filterByGuests(guestsQuantity)} />
-        </>
       )}
     </div>
   );
