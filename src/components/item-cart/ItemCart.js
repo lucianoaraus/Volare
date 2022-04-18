@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import CartWidgetContext from "../context/CartWidgetContext";
 
 import "../item-cart/item-cart.css";
 
 function ItemCart({ reserve }) {
+  const { removeReserveFromCart } = useContext(CartWidgetContext);
+
   return (
     <div className="cart-item-detail-parent">
       <div className="cart-item-detail">
@@ -30,6 +34,12 @@ function ItemCart({ reserve }) {
             className="item-detail-button"
           >
             Purchase
+          </button>
+          <button
+            onClick={() => removeReserveFromCart(reserve)}
+            className="cancele-button"
+          >
+            Cancel
           </button>
         </div>
       </div>

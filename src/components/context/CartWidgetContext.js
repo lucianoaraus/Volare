@@ -10,13 +10,13 @@ const CartWidgetProvider = ({ children }) => {
   };
 
   const removeReserveFromCart = (reserveExt) => {
-    setReserveInt(
-      reserveInt.filter((reserveInt) => reserveInt.id !== reserveExt.id)
+    const newArrFiltered = reserveInt.filter(
+      (reserve) => reserve.Id !== reserveExt.Id
     );
+    setReserveInt(newArrFiltered);
   };
 
   const reservesData = {
-    // reserves:
     reserveInt,
     addReserveToCart,
     removeReserveFromCart,

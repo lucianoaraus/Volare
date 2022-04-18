@@ -28,6 +28,10 @@
   margin: 0 16px;
 }
 
+.right-side-header {
+  display: flex;
+}
+
 /* Buttons */
 .button-1 {
   border: 0;

@@ -15,7 +15,9 @@ function CartWidget() {
 
   return (
     <div className="cart-widget-container">
-      <p className="cart-items-number">{itemsReserved}</p>
+      {reserveInt.length > 0 && (
+        <p className="cart-items-number">{itemsReserved}</p>
+      )}
       <button className="button-2" onClick={goToCart}>
         Cart Widget
       </button>
