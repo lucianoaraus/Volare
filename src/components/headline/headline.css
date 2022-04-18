@@ -5,31 +5,29 @@
   align-items: center;
 }
 
-.headline-text h3{
-  color: #3011BC;
+.headline-text h3 {
+  color: #3011bc;
   text-transform: uppercase;
-  
+
   font-size: 18px;
   font-weight: bold;
 }
 
-.headline-subtitle{
+.headline-subtitle {
   text-align: left;
   width: 330px;
-  font-family: 'Volkhov', serif;
+  font-family: "Volkhov", serif;
   font-size: 32px;
   font-weight: 600;
 }
 
-.headline-detail{
+.headline-detail {
   text-align: left;
   width: 330px;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
   font-size: 12px;
   font-weight: 400;
 }
-
-
 
 .travel-girl {
   width: 384px;
