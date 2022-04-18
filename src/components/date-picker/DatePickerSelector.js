@@ -8,12 +8,19 @@ function DatePickerSelector() {
   //months are between 0-11
 
   const [startDate, setStartDate] = useState();
+  const [startDateStr, setStartDateStr] = useState(); // Date with string format
+
+  const setDateFunc = (date) => {
+    setStartDate(date);
+    const strDate = date.toLocaleDateString();
+    setStartDateStr(strDate);
+  };
 
   return (
     <DatePicker
       selected={startDate}
       placeholderText="Select a date"
-      onChange={(date) => setStartDate(date)}
+      onChange={(date) => setDateFunc(date)}
       dateFormat="dd/MM/yy"
       minDate={new Date()}
       className="date-picker"
