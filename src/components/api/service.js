@@ -7,8 +7,8 @@
 var Amadeus = require("amadeus");
 
 var amadeus = new Amadeus({
-  clientId: "", // must be secret
-  clientSecret: "", // must be secret
+  clientId: process.env.REACT_APP_API_ID, // must be secret
+  clientSecret: process.env.REACT_APP_API_KEY, // must be secret
 });
 
 // ejemplo

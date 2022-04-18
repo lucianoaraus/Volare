@@ -18,6 +18,7 @@ function DatePickerSelector() {
 
   return (
     <DatePicker
+      /* autoComplete={false} */
       selected={startDate}
       placeholderText="Select a date"
       onChange={(date) => setDateFunc(date)}

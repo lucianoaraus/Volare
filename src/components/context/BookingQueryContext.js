@@ -10,12 +10,12 @@ const BookingQueryProvider = ({ children }) => {
       destination: "",
       checkIn: "",
       checkOut: "",
-      guests: "",
+      guests: 0,
     },
   ]);
 
   const addGuestsToQuery = () => {
-    //setguestsQuantity(guestsQuantity + 1);
+    setguestsQuantity(guestsQuantity + 1);
     setQueryParams(queryParams[queryParams.length - 1].guests + 1); // siempre lee la ultima query del arr
     console.log(queryParams);
   };
