@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import CartWidgetContext from "../../context/CartWidgetContext";
 
 import "../Header.css";
 
-function CartWidget(count) {
+function CartWidget() {
   const navigate = useNavigate();
+  const { reserveInt } = useContext(CartWidgetContext);
+  const itemsReserved = reserveInt.length > 0 && reserveInt.length;
 
   const goToCart = () => {
     navigate("/cart");
   };
 
   return (
-    <button className="button-2" onClick={goToCart}>
-      Cart Widget
-    </button>
+    <div className="cart-widget-container">
+      <p className="cart-items-number">{itemsReserved}</p>
+      <button className="button-2" onClick={goToCart}>
+        Cart Widget
+      </button>
+    </div>
   );
 }
 
