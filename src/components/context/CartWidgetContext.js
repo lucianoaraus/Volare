@@ -11,7 +11,7 @@ const CartWidgetProvider = ({ children }) => {
 
   const removeReserveFromCart = (reserveExt) => {
     const newArrFiltered = reserveInt.filter(
-      (reserve) => reserve.Id !== reserveExt.Id
+      (reserve) => reserve.id !== reserveExt.id
     );
     setReserveInt(newArrFiltered);
   };

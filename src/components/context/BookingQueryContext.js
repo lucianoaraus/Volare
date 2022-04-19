@@ -4,20 +4,9 @@ const BookingQueryContext = createContext();
 
 const BookingQueryProvider = ({ children }) => {
   const [guestsQuantity, setguestsQuantity] = useState(0);
-  const [queryParams, setQueryParams] = useState([
-    {
-      id: "",
-      destination: "",
-      checkIn: "",
-      checkOut: "",
-      guests: 0,
-    },
-  ]);
 
   const addGuestsToQuery = () => {
     setguestsQuantity(guestsQuantity + 1);
-    setQueryParams(queryParams[queryParams.length - 1].guests + 1); // siempre lee la ultima query del arr
-    console.log(queryParams);
   };
 
   const removeGuestsFromQuery = () => {
@@ -25,7 +14,6 @@ const BookingQueryProvider = ({ children }) => {
   };
 
   const data = {
-    // guests:
     guestsQuantity,
     addGuestsToQuery,
     removeGuestsFromQuery,

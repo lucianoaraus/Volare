@@ -12,21 +12,21 @@ function ItemCart({ reserve }) {
       <div className="cart-item-detail">
         <div className="cart-item-detail-left-side-container">
           <div>
-            <h3>{reserve.HotelName}</h3>
+            <h3>{reserve.hotelName}</h3>
           </div>
           <p>
-            <u>{reserve.Country}</u>
+            <u>{reserve.country}</u>
           </p>
           <br />
-          <p>Capacity: {reserve.Capacity}</p>
+          <p>Capacity: {reserve.capacity}</p>
           <p>
-            <b>{reserve.Type}</b>
+            <b>{reserve.type}</b>
           </p>
           <br />
         </div>
         <div className="cart-item-detail-right-side-container">
           <p>Each night per bedroom</p>
-          <h3>${reserve.NightPrice}</h3>
+          <h3>${reserve.nightPrice}</h3>
           <p>Total Price $(totalPrice)</p>
           <p className="">Taxes included</p>
           <button

@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 
 import ItemDetail from "./item-detail/ItemDetail";
-import mockProducts from "../utils/mockProducts";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 import "./item-detail-container.css";
 
-function ItemDetailContainer(props) {
+function ItemDetailContainer() {
   const [products, setProducts] = useState();
 
-  const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        return resolve(mockProducts);
-      }, 2000);
-    });
-  };
-
   useEffect(() => {
-    getProducts().then((products) => {
-      setProducts(products);
+    const db = getFirestore();
+    const itemsCollection = collection(db, "booking-items");
+    getDocs(itemsCollection).then((snapshot) => {
+      setProducts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+      );
     });
   }, []);
 

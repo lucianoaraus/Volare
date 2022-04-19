@@ -9,56 +9,56 @@ import "./item.css";
 
 function Item({ data }) {
   const {
-    Id,
-    Country,
-    Location,
-    HotelName,
-    Addres,
-    NightPrice,
-    CheckIn,
-    CheckOut,
-    Type,
-    Breakfast,
-    Stock,
-    Capacity,
-    Images,
-    Category,
+    id,
+    country,
+    location,
+    hotelName,
+    address,
+    nightPrice,
+    checkIn,
+    checkOut,
+    type,
+    breakfast,
+    stock,
+    capacity,
+    images,
+    category,
   } = data;
 
   const totalPrice = () => {
-    return (CheckOut - CheckIn) * NightPrice;
+    return (checkOut - checkIn) * nightPrice;
     // WIP
   };
 
   return (
     <div className="card-item">
       <div className="left-side-card-item">
-        <img src={Images[0]} alt="product" />
+        <img src={images[0]} alt="product" />
       </div>
       <div className="mid-side-card-item">
         <div className="title-mid-side">
-          <h3>{HotelName}</h3>
+          <h3>{hotelName}</h3>
           <img src={stars} alt="stars" />
         </div>
         <p>
-          <u>{`${Location}, ${Country}`}</u>
+          <u>{`${location}, ${country}`}</u>
         </p>
         <br />
-        <p>Capacity: {Capacity}</p>
+        <p>Capacity: {capacity}</p>
         <p>
-          <b>{Type}</b>
+          <b>{type}</b>
         </p>
         <br />
         <br />
-        <p className="class-p">{Breakfast}</p>
-        <p className="hot-p">Last {Stock} on this amount</p>
+        <p className="class-p">{breakfast}</p>
+        <p className="hot-p">Last {stock} on this amount</p>
       </div>
       <div className="right-side-card-item">
         <p>Each night per bedroom</p>
-        <h3>${NightPrice}</h3>
+        <h3>${nightPrice}</h3>
         <p>Total Price $(totalPrice)</p>
         <p className="light-p">Taxes included</p>
-        <Link to={`/booking/${Id}`}>
+        <Link to={`/booking/${id}`}>
           <button className="item-detail-button">View Details</button>
         </Link>
       </div>
