@@ -33,7 +33,6 @@ export default function BasicMenu() {
       >
         <h3>Guests</h3>
         {guestsQuantity > 0 ? <p>{guestsQuantity}</p> : <p>Add guests</p>}
-        
       </Button>
       <Menu
         id="basic-menu"

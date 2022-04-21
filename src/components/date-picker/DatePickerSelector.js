@@ -4,16 +4,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./date-picker.css";
 
-function DatePickerSelector() {
+function DatePickerSelector(props) {
   //months are between 0-11
-
   const [startDate, setStartDate] = useState();
-  const [startDateStr, setStartDateStr] = useState(); // Date with string format
 
   const setDateFunc = (date) => {
     setStartDate(date);
-    const strDate = date.toLocaleDateString();
-    setStartDateStr(strDate);
+    const isoDate = date.toISOString().substring(0, 10); // ISO format date: yyyy-MM-dd
+    props.onChange(isoDate); // manda la fecha en formate str al padre
   };
 
   return (
@@ -21,8 +19,8 @@ function DatePickerSelector() {
       /* autoComplete={false} */
       selected={startDate}
       placeholderText="Select a date"
+      dateFormat="yyyy/MM/dd"
       onChange={(date) => setDateFunc(date)}
-      dateFormat="dd/MM/yy"
       minDate={new Date()}
       className="date-picker"
     />
