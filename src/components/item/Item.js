@@ -13,22 +13,18 @@ function Item({ data }) {
     country,
     location,
     hotelName,
-    address,
     nightPrice,
-    checkIn,
-    checkOut,
     type,
     breakfast,
     stock,
     capacity,
     images,
-    category,
   } = data;
 
-  const totalPrice = () => {
-    return (checkOut - checkIn) * nightPrice;
-    // WIP
-  };
+  //const totalPrice = () => {
+  //  return (checkOut - checkIn) * nightPrice;
+  //   WIP
+  //};
 
   return (
     <div className="card-item">
