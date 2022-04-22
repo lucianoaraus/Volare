@@ -28,6 +28,7 @@ const BookingQueryProvider = ({ children }) => {
     setguestsQuantity(guestsQuantity - 1);
   };
 
+  // No funciona, revisar: despues no se pueda importar bien
   const data = {
     destination,
     addDestination,

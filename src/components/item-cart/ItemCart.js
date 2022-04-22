@@ -2,16 +2,17 @@ import React, { useContext } from "react";
 
 import CartWidgetContext from "../context/CartWidgetContext";
 import BookingQueryContext from "../context/BookingQueryContext";
+import Modal from "../modal/Modal"
 
 import "../item-cart/item-cart.css";
 
 function ItemCart({ reserve }) {
-  const { removeReserveFromCart } = useContext(CartWidgetContext);
-  const { data } = useContext(BookingQueryContext);
   const { hotelName, country, capacity, type, nightPrice } = reserve;
+  const {destination, checkInDate, checkOutDate, guestsQuantity } = useContext(BookingQueryContext);
+  const { removeReserveFromCart } = useContext(CartWidgetContext);
 
-  console.log("data", data);
-
+  const successfullyPurchaseData = `Destionation: ${destination}, Check-In: ${checkInDate}, Check-Out: ${checkOutDate}, Guests: ${guestsQuantity}. Have a nice vacations 😁✈!`
+  
   return (
     <div className="cart-item-detail-parent">
       <div className="cart-item-detail">
@@ -34,12 +35,7 @@ function ItemCart({ reserve }) {
           <h3>${nightPrice}</h3>
           <p>Total Price $(totalPrice)</p>
           <p className="">Taxes included</p>
-          <button
-            onClick={() => alert("Successful purchase!")}
-            className="item-detail-button"
-          >
-            Purchase
-          </button>
+          
           <button
             onClick={() => removeReserveFromCart(reserve)}
             className="cancele-button"
@@ -48,6 +44,8 @@ function ItemCart({ reserve }) {
           </button>
         </div>
       </div>
+      {/* <Modal data={successfullyPurchaseData}/> */}
+      
     </div>
   );
 }

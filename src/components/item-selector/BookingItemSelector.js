@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import MenuGuests from "../menu/MenuGuests";
 import BookingQueryContext from "../context/BookingQueryContext";
@@ -17,29 +17,31 @@ import "./booking-item-selector.css";
 
 function BookingItemSelector() {
   const navigate = useNavigate();
-
+  const { addDestination, addCheckInDate, addCheckOutDate, guestsQuantity } = useContext(BookingQueryContext);
+  
   // form query:
-  const [destination, setDestination] = useState("");
-  const [checkInDate, setCheckInDate] = useState("");
-  const [checkOutDate, setCheckOutDate] = useState("");
-  const { guestsQuantity } = useContext(BookingQueryContext);
-
+  //const [destination, setDestination] = useState("");
+  //const [checkInDate, setCheckInDate] = useState("");
+  //const [checkOutDate, setCheckOutDate] = useState("");
+  
   // WIP:
-  /* const [query, setQuery] = useState({
+  /*
+  const [query, setQuery] = useState({
     queryDestination: "",
     queryCheckInDate: "",
     queryCheckOutDate: "",
     queryGuests: "",
-  }); */
+  });
 
-  /* const handleSubmit = () => {
+  const handleSubmit = () => {
     setQuery({
       queryDestination: "",
       queryCheckInDate: "",
       queryCheckOutDate: "",
       queryGuests: "",
     });
-  }; */
+  };
+  */
 
   const notGuestsEnought = () => {
     // TODO: arreglar esto
@@ -50,9 +52,6 @@ function BookingItemSelector() {
         );
   };
 
-  console.log(
-    `Destionation: ${destination}, Check-In: ${checkInDate}, Check-Out: ${checkOutDate}, Guests: ${guestsQuantity}`
-  );
 
   // TODO: Implementar el seteo de datos mediante un form (?)
 
@@ -69,7 +68,7 @@ function BookingItemSelector() {
               type="text"
               name="destination"
               placeholder="Where are you going?"
-              onChange={(event) => setDestination(event.target.value)}
+              onChange={(event) => addDestination(event.target.value)}
             />
           </div>
           <button className="down-arrow">
@@ -84,7 +83,7 @@ function BookingItemSelector() {
           <div className="mid-selector">
             <h3>Check-in</h3>
             <DatePickerSelector
-              onChange={(date) => setCheckInDate(date)}
+              onChange={(date) => addCheckInDate(date)}
               type="text"
               name="checkIn"
             />
@@ -101,7 +100,7 @@ function BookingItemSelector() {
           <div className="mid-selector">
             <h3>Check-out</h3>
             <DatePickerSelector
-              onChange={(date) => setCheckOutDate(date)}
+              onChange={(date) => addCheckOutDate(date)}
               type="text"
               name="checkOut"
             />
