@@ -12,7 +12,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "none",
+  borderRadius: 4,
   boxShadow: 24,
   pt: 2,
   px: 4,
@@ -32,11 +33,9 @@ export default function NestedModal() {
   };
 
   const onSubmit = (e) => {
-    console.log(e); //JSON: form data -> TODO: Mandar a Firebase
+    //console.log("form completado desde modal padre: ", e); //JSON: form data -> TODO: Mandar a Firebase
     setFormData(e);
   };
-
-  // new develop branch
 
   return (
     <div>
@@ -49,7 +48,7 @@ export default function NestedModal() {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, width: 400 }}>
+        <Box sx={{ ...style }}>
           <h2>User data:</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <label>
@@ -68,7 +67,8 @@ export default function NestedModal() {
               Phone number:
               <input {...register("phoneNumber")} type="number" />
             </label>
-            <ChildModal formData={formData} />
+
+            <ChildModal formData={formData !== undefined && formData} />
           </form>
         </Box>
       </Modal>
@@ -80,6 +80,15 @@ function ChildModal(props) {
   const [open, setOpen] = React.useState(false);
   const { formData } = props;
   const { firstName, lastName, email, phoneNumber } = formData;
+
+  // TODO: optimizar la cantidad de veces que se renderiza el componente
+  /* console.log(
+    "Props des-desestructurado: ",
+    firstName,
+    lastName,
+    email,
+    phoneNumber
+  ); */
 
   const handleOpen = () => {
     setOpen(true);
@@ -105,19 +114,29 @@ function ChildModal(props) {
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
-        <Box sx={{ ...style, width: 200 }}>
+        <Box sx={{ ...style }}>
           <h2>Successfully purchased!</h2>
           <h3>Your Purchase Resume:</h3>
 
-          <p>Order ID: 123e123e12ed12d12d</p>
+          <p>
+            <b>Order ID:</b> 123e123e12ed12d12d
+          </p>
 
           <h3>Booking Description:</h3>
 
           <h3>Your contact data:</h3>
-          <p>First Name: {firstName}</p>
-          <p>Last Name: {lastName}</p>
-          <p>Email: {email}</p>
-          <p>Phone Number: {phoneNumber}</p>
+          <p>
+            <b>First Name:</b> {firstName}
+          </p>
+          <p>
+            <b>Last Name:</b> {lastName}
+          </p>
+          <p>
+            <b>Email:</b> {email}
+          </p>
+          <p>
+            <b>Phone Number:</b> {phoneNumber}
+          </p>
 
           <button onClick={handleClose} className="item-detail-button">
             Confirm purchase

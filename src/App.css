@@ -22,6 +22,7 @@ a:hover {
 }
 
 input {
+  width: 220px;
   border: none;
   background: none;
   outline: none;
@@ -29,5 +30,6 @@ input {
 
 input:hover {
   border: 0;
-  background-color: #f8f8f8; /* FIX THIS */
+  border-radius: 4px;
+  background-color: #eae6fc4d;
 }
