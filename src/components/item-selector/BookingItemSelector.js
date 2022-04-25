@@ -17,13 +17,14 @@ import "./booking-item-selector.css";
 
 function BookingItemSelector() {
   const navigate = useNavigate();
-  const { addDestination, addCheckInDate, addCheckOutDate, guestsQuantity } = useContext(BookingQueryContext);
-  
+  const { addDestination, addCheckInDate, addCheckOutDate, guestsQuantity } =
+    useContext(BookingQueryContext);
+
   // form query:
   //const [destination, setDestination] = useState("");
   //const [checkInDate, setCheckInDate] = useState("");
   //const [checkOutDate, setCheckOutDate] = useState("");
-  
+
   // WIP:
   /*
   const [query, setQuery] = useState({
@@ -52,8 +53,8 @@ function BookingItemSelector() {
         );
   };
 
-
   // TODO: Implementar el seteo de datos mediante un form (?)
+  // ERR! -> Form submission canceled because the form is not connected
 
   return (
     <div className="item-selector-container">
