@@ -22,10 +22,13 @@ a:hover {
 }
 
 input {
-  width: 220px;
   border: none;
   background: none;
   outline: none;
+}
+
+form > input {
+  width: 220px;
 }
 
 input:hover {

@@ -1,10 +1,15 @@
-import * as React from "react";
-import { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { collection, getFirestore, getDocs } from "firebase/firestore";
+
+import CartWidgetContext from "../context/CartWidgetContext";
 import { useForm } from "react-hook-form";
+
+import { sendOrder } from "../helpers/sendOrder";
 
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 
+// modal styles
 const style = {
   position: "absolute",
   top: "50%",
@@ -20,31 +25,56 @@ const style = {
   pb: 3,
 };
 
-export default function NestedModal() {
-  const { register, handleSubmit } = useForm();
-  const [open, setOpen] = React.useState(false);
-  const [formData, setFormData] = useState();
+// TODO  (VERY IMPORTANT!!!)
+// optimizar la cantidad de veces que se renderizan los modales
 
-  const handleOpen = () => {
+export default function NestedModal() {
+  // modal
+  const [open, setOpen] = useState(false);
+
+  // form
+  const { register, handleSubmit } = useForm();
+
+  //data
+  const [buyerData, setBuyerData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+  });
+  const [orderReady, setOrderReady] = useState(false);
+  const { reserveInt } = useContext(CartWidgetContext);
+  const bookingData = reserveInt[0]; //fix
+
+  const fullOrderData = { buyerData, bookingData };
+
+  useEffect(() => {
+    orderReady && sendOrder(fullOrderData);
+  });
+
+  const handleOpenParent = () => {
     setOpen(true);
   };
-  const handleClose = () => {
+  const handleCloseParent = () => {
     setOpen(false);
   };
 
   const onSubmit = (e) => {
-    //console.log("form completado desde modal padre: ", e); //JSON: form data -> TODO: Mandar a Firebase
-    setFormData(e);
+    setBuyerData(e);
+    setOrderReady(true);
   };
+
+  const data = { buyerData, handleCloseParent };
 
   return (
     <div>
-      <button onClick={handleOpen} className="item-detail-button">
+      <button onClick={handleOpenParent} className="item-detail-button">
         Purchase All
       </button>
+
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={handleCloseParent}
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
@@ -68,49 +98,47 @@ export default function NestedModal() {
               <input {...register("phoneNumber")} type="number" />
             </label>
 
-            <ChildModal formData={formData !== undefined && formData} />
+            <button type="submit" value="submit" className="item-detail-button">
+              Submit
+            </button>
           </form>
+          {orderReady && <ChildModal parentData={data} />}
         </Box>
       </Modal>
     </div>
   );
 }
 
-function ChildModal(props) {
-  const [open, setOpen] = React.useState(false);
-  const { formData } = props;
-  const { firstName, lastName, email, phoneNumber } = formData;
+function ChildModal(data) {
+  const [open, setOpen] = useState(true);
 
-  // TODO: optimizar la cantidad de veces que se renderiza el componente
-  /* console.log(
-    "Props des-desestructurado: ",
-    firstName,
-    lastName,
-    email,
-    phoneNumber
-  ); */
+  // data
+  const { parentData } = data;
+  const { buyerData, handleCloseParent } = parentData;
+  const { firstName, lastName, email, phoneNumber } = buyerData;
+  const [orderId, setOrderId] = useState("");
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
+  const handleCloseChild = () => {
     setOpen(false);
+    handleCloseParent(false);
+    // TODO: ir a otra pagina
   };
+
+  useEffect(() => {
+    const db = getFirestore();
+    const ordersCollection = collection(db, "orders");
+    getDocs(ordersCollection).then((snapshot) => {
+      const orderIdAux = snapshot.docs[0].id;
+      setOrderId(orderIdAux);
+    });
+  }, []);
 
   return (
-    <React.Fragment>
-      <button
-        onClick={handleOpen}
-        className="item-detail-button"
-        type="submit"
-        value="submit"
-      >
-        Send contact data
-      </button>
+    <>
       <Modal
         hideBackdrop
         open={open}
-        onClose={handleClose}
+        onClose={handleCloseChild}
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
@@ -119,7 +147,7 @@ function ChildModal(props) {
           <h3>Your Purchase Resume:</h3>
 
           <p>
-            <b>Order ID:</b> 123e123e12ed12d12d
+            <b>Order ID:</b> {orderId}
           </p>
 
           <h3>Booking Description:</h3>
@@ -138,11 +166,11 @@ function ChildModal(props) {
             <b>Phone Number:</b> {phoneNumber}
           </p>
 
-          <button onClick={handleClose} className="item-detail-button">
+          <button onClick={handleCloseChild} className="item-detail-button">
             Confirm purchase
           </button>
         </Box>
       </Modal>
-    </React.Fragment>
+    </>
   );
 }
