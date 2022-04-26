@@ -4,6 +4,7 @@ const CartWidgetContext = createContext();
 
 const CartWidgetProvider = ({ children }) => {
   const [reserveInt, setReserveInt] = useState([]);
+  const [reserveId, setReserveId] = useState();
 
   const addReserveToCart = (reserveExt) => {
     setReserveInt((reserveInt) => [...reserveInt, reserveExt]);
@@ -16,10 +17,16 @@ const CartWidgetProvider = ({ children }) => {
     setReserveInt(newArrFiltered);
   };
 
+  const addReserveId = (reserveId) => {
+    setReserveId(reserveId);
+  };
+
   const reservesData = {
     reserveInt,
     addReserveToCart,
     removeReserveFromCart,
+    addReserveId,
+    reserveId,
   };
 
   return (

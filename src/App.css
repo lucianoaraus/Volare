@@ -27,7 +27,12 @@ input {
   outline: none;
 }
 
+form > input {
+  width: 220px;
+}
+
 input:hover {
   border: 0;
-  background-color: #f8f8f8; /* FIX THIS */
+  border-radius: 4px;
+  background-color: #eae6fc4d;
 }
