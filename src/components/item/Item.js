@@ -58,7 +58,6 @@ function Item({ data }) {
           <button className="item-detail-button">View Details</button>
         </Link>
       </div>
-      {/* <ItemCount seats={Seats} initial={1} /> */}
     </div>
   );
 }

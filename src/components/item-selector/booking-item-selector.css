@@ -1,6 +1,6 @@
 .item-selector-container {
   display: flex;
-  
+
   align-items: center;
   justify-content: center;
 
@@ -13,10 +13,10 @@
 
 .options-selector {
   display: flex;
-  
+
   width: 920px;
   height: 78px;
-  
+
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -26,15 +26,19 @@
   background-color: #fff;
 }
 
-.destination-item, .date-item, .guest-item {
+.destination-item,
+.date-item,
+.guest-item {
   display: flex;
   align-items: center;
-  text-align:left;
-  
+  text-align: left;
+
   height: 67px;
 }
 
-.destination-item:hover, .date-item:hover, .guest-item:hover{
+.destination-item:hover,
+.date-item:hover,
+.guest-item:hover {
   background-color: #f8f8f8;
   border-radius: 48px;
 }

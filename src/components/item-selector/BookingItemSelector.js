@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import MenuGuests from "../menu/MenuGuests";
+import MenuGuests from "../guests/MenuGuests";
 import BookingQueryContext from "../context/BookingQueryContext";
 import DatePickerSelector from "../date-picker/DatePickerSelector";
 
