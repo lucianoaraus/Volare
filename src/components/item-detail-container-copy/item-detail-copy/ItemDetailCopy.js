@@ -49,8 +49,14 @@ function ItemDetailCopy(props) {
                     type="email"
                     className="form-input"
                   />
-                  <input placeholder="Nombre" className="form-input" />
-                  <input placeholder="Apellido" className="form-input" />
+                  <input
+                    placeholder="Nombre"
+                    className="form-input input-name"
+                  />
+                  <input
+                    placeholder="Apellido"
+                    className="form-input input-lastname"
+                  />
                   <input
                     placeholder="Telefono"
                     type="number"
