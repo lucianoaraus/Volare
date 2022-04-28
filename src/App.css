@@ -34,5 +34,5 @@ form > input {
 input:hover {
   border: 0;
   border-radius: 4px;
-  background-color: #eae6fc4d;
+  background: none;
 }

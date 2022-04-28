@@ -16,7 +16,6 @@ import Packages from "./components/pages/Packages";
 
 import ItemListContainer from "./components/item-list-container/ItemListContainer";
 import ItemDetailContainer from "./components/item-detail-container/ItemDetailContainer";
-import ItemDetailContainerCopy from "./components/item-detail-container-copy/ItemDetailContainerCopy";
 
 import "./App.css";
 
@@ -47,7 +46,7 @@ function App() {
             <Route
               exact
               path="/booking/:id"
-              element={<ItemDetailContainerCopy />}
+              element={<ItemDetailContainer />}
             />
             <Route exact path="/cart" element={<Cart />} /> {/* WIP */}
           </Routes>
