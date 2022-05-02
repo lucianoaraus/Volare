@@ -8,6 +8,7 @@ const CartWidgetProvider = ({ children }) => {
 
   const addReserveToCart = (reserveExt) => {
     setReserveInt((reserveInt) => [...reserveInt, reserveExt]);
+    console.log("Reserva a agregar: ", reserveExt);
   };
 
   const removeReserveFromCart = (reserveExt) => {

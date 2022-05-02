@@ -1,18 +1,39 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-import CartWidgetContext from "../../context/CartWidgetContext";
+import { useForm } from "react-hook-form";
+import { sendOrder } from "../../helpers/sendOrder";
 import loading from "../../../assets/loading.gif";
-
 import "./item-detail.css";
 
 function ItemDetail(props) {
-  const { data } = props;
-  const { addReserveToCart } = useContext(CartWidgetContext);
+  const { register, handleSubmit } = useForm();
+  const [orderReady, setOrderReady] = useState(false);
+  const [buyerData, setBuyerData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+  });
+  const { firstName, lastName, email, phoneNumber } = buyerData;
   const { id } = useParams();
+  const { data } = props;
 
-  const item = data !== undefined && data.filter((i) => i.id === id)[0];
+  const bookingFilter = (data) => {
+    return data.filter((item) => item.id === id)[0];
+  };
+  const bookingItem = data !== undefined && bookingFilter(data);
+
+  const fullOrderData = { buyerData, bookingItem };
+
+  useEffect(() => {
+    orderReady && sendOrder(fullOrderData);
+  });
+
+  const onSubmit = (e) => {
+    //al haber 2 setState el componente se renderiza x2, arreglar
+    setBuyerData(e);
+    setOrderReady(true);
+  };
 
   return (
     <>
@@ -41,35 +62,55 @@ function ItemDetail(props) {
                   <b>Viajeros</b>2 viajeros
                 </section>
                 <br />
-                {/* contact form */}
-                <form className="ls-side-detail form">
-                  <h3>Tus datos</h3>
-                  <input
-                    placeholder="Correo electronico"
-                    type="email"
-                    className="form-input"
-                  />
-                  <input
-                    placeholder="Nombre"
-                    className="form-input input-name"
-                  />
-                  <input
-                    placeholder="Apellido"
-                    className="form-input input-lastname"
-                  />
-                  <input
-                    placeholder="Telefono"
-                    type="number"
-                    className="form-input"
-                  />
-                  <button
-                    type="submit"
-                    value="submit"
-                    className="submit-button"
+                {orderReady ? (
+                  <>
+                    <h3>Tus datos</h3>
+                    <p>{firstName}</p>
+                    <p>{lastName}</p>
+                    <p>{email}</p>
+                    <p>{phoneNumber}</p>
+
+                    <h3>Order id</h3>
+                    <p></p>
+                  </>
+                ) : (
+                  // contact form
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="ls-side-detail form"
                   >
-                    Submit
-                  </button>
-                </form>
+                    <h3>Tus datos</h3>
+                    <input
+                      {...register("email")}
+                      placeholder="Email"
+                      type="email"
+                      className="form-input"
+                    />
+                    <input
+                      {...register("firstName")}
+                      placeholder="First name"
+                      className="form-input input-name"
+                    />
+                    <input
+                      {...register("lastName")}
+                      placeholder="Last name"
+                      className="form-input input-lastname"
+                    />
+                    <input
+                      {...register("phoneNumber")}
+                      placeholder="Phone number"
+                      type="number"
+                      className="form-input"
+                    />
+                    <button
+                      type="submit"
+                      value="submit"
+                      className="submit-button"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
           </div>
@@ -77,7 +118,7 @@ function ItemDetail(props) {
           <div className="right-side-container">
             <div className="rs-column">
               <img
-                src={item.images[0]}
+                src={bookingItem.images[0]}
                 alt="item-detail-img"
                 className="img-detail"
               />

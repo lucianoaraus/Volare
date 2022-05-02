@@ -1,18 +1,26 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 
 function sendOrder(fullOrderData) {
-  const { buyerData, bookingData } = fullOrderData;
+  const { buyerData, bookingItem } = fullOrderData;
+
+  console.log(`orden completa: ${fullOrderData}`);
 
   const order = {
     buyer: buyerData,
-    items: bookingData,
-    totalPrice: bookingData.nightPrice, // fix
+    items: bookingItem,
+    totalPrice: bookingItem.nightPrice, // fix
   };
   const db = getFirestore();
 
   const ordersCollection = collection(db, "orders");
 
   addDoc(ordersCollection, order);
+}
+
+function getOrder(orderId) {
+  const db = getFirestore();
+  const ordersCollection = collection(db, "orders");
+  getDocs(ordersCollection).then((snapshot) => {});
 }
 
 export { sendOrder };
