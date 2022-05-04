@@ -5,16 +5,51 @@ import { sendOrder } from "../../helpers/sendOrder";
 import loading from "../../../assets/loading.gif";
 import "./item-detail.css";
 
+// payment
+import masterCard from "../../../assets/master-card.svg";
+
+const normalizeCardNumber = (value) => {
+  return (
+    value
+      .replace(/\s/g, "")
+      .match(/.{1,4}/g)
+      ?.join(" ")
+      .substr(0, 19) || ""
+  );
+};
+
+const normalizeCVC = (value) => {
+  return (
+    value
+      .replace(/\s/g, "")
+      .match(/.{1,4}/g)
+      ?.join(" ")
+      .substr(0, 3) || ""
+  );
+};
+
+//const normalizeCardDate = (value) => {};
+
 function ItemDetail(props) {
   const { register, handleSubmit } = useForm();
   const [orderReady, setOrderReady] = useState(false);
-  const [buyerData, setBuyerData] = useState({
+  const [contactData, setContactData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
   });
-  const { firstName, lastName, email, phoneNumber } = buyerData;
+  const [buyerData, setBuyerData] = useState({
+    buyerEmail: "",
+    cardNumber: "",
+    dueDate: "",
+    cvc: "",
+    cardName: "",
+  });
+
+  const { firstName, lastName, email, phoneNumber } = contactData;
+  const { buyerEmail, cardNumber, dueDate, cvc, cardName } = buyerData;
+
   const { id } = useParams();
   const { data } = props;
 
@@ -23,17 +58,40 @@ function ItemDetail(props) {
   };
   const bookingItem = data !== undefined && bookingFilter(data);
 
-  const fullOrderData = { buyerData, bookingItem };
+  const fullOrderData = { contactData, buyerData, bookingItem };
 
   useEffect(() => {
     orderReady && sendOrder(fullOrderData);
   });
 
-  const onSubmit = (e) => {
+  const onSubmitContact = (e) => {
     //al haber 2 setState el componente se renderiza x2, arreglar
+    setContactData(e);
+  };
+
+  const onSubmitPayment = (e) => {
     setBuyerData(e);
     setOrderReady(true);
   };
+
+  const contactReady = () => {
+    return (
+      firstName !== "" && lastName !== "" && email !== "" && phoneNumber !== ""
+    );
+  };
+
+  const paymentReady = () => {
+    return (
+      buyerEmail !== "" &&
+      cardNumber !== "" &&
+      dueDate !== "" &&
+      cvc !== "" &&
+      cardName !== ""
+    );
+  };
+
+  console.log(`contact ready?: ${contactReady()}`);
+  console.log(`payment ready?: ${paymentReady()}`);
 
   return (
     <>
@@ -45,7 +103,7 @@ function ItemDetail(props) {
             <div className="ls-column">
               {/* order resume */}
               <div className="ls-side-text">
-                <h2>Confirma y paga</h2>
+                <h2>Confirm and pay</h2>
                 <h3>Tu viaje</h3>
                 <br />
                 <section className="ls-side-detail">
@@ -62,24 +120,97 @@ function ItemDetail(props) {
                   <b>Viajeros</b>2 viajeros
                 </section>
                 <br />
-                {orderReady ? (
-                  <>
-                    <h3>Tus datos</h3>
-                    <p>{firstName}</p>
-                    <p>{lastName}</p>
-                    <p>{email}</p>
-                    <p>{phoneNumber}</p>
+                {contactReady() ? (
+                  paymentReady() ? (
+                    <>
+                      <h3>Tus datos</h3>
+                      <p>First name: {firstName}</p>
+                      <p>Last name: {lastName}</p>
+                      <p>Email: {email}</p>
+                      <p>Phone: {phoneNumber}</p>
 
-                    <h3>Order id</h3>
-                    <p></p>
-                  </>
+                      <h3>Order id</h3>
+                      <p>as654d98as1d6a5s1d8asd</p>
+                    </>
+                  ) : (
+                    <form
+                      onSubmit={handleSubmit(onSubmitPayment)}
+                      className="ls-side-detail form"
+                    >
+                      <b>Email</b>
+                      <input
+                        {...register("buyerEmail")}
+                        placeholder="Email"
+                        type="email"
+                        className="form-input"
+                      />
+                      <b>Card information</b>
+                      <div>
+                        <input
+                          {...register("cardNumber")}
+                          placeholder="0000 0000 0000 0000"
+                          type="tel"
+                          inputMode="numeric"
+                          autoComplete="cc-number"
+                          name="cardNumber"
+                          id="cardNumber"
+                          onChange={(event) => {
+                            const { value } = event.target;
+                            event.target.value = normalizeCardNumber(value);
+                          }}
+                          className="form-input"
+                        />
+                        <img
+                          src={masterCard}
+                          className="master-card-logo"
+                          alt="mastercard"
+                        />
+                      </div>
+
+                      <div className="card-information">
+                        <input
+                          {...register("dueDate")}
+                          placeholder="MM/YY"
+                          type="tel"
+                          className="form-input input-date"
+                          /* onChange={(event) => {
+                          const { value } = event.target;
+                          event.target.value = normalizeCardDate(value);
+                        }} */
+                        />
+                        <input
+                          {...register("cvc")}
+                          placeholder="CVC"
+                          type="number"
+                          className="form-input input-cvc"
+                          onChange={(event) => {
+                            const { value } = event.target;
+                            event.target.value = normalizeCVC(value);
+                          }}
+                        />
+                      </div>
+
+                      <b>Name on card</b>
+                      <input
+                        {...register("cardName")}
+                        placeholder="Name"
+                        className="form-input"
+                      />
+                      <button
+                        type="submit"
+                        value="submit"
+                        className="submit-button"
+                      >
+                        Pay $157.731
+                      </button>
+                    </form>
+                  )
                 ) : (
-                  // contact form
                   <form
-                    onSubmit={handleSubmit(onSubmit)}
+                    onSubmit={handleSubmit(onSubmitContact)}
                     className="ls-side-detail form"
                   >
-                    <h3>Tus datos</h3>
+                    <h3>Completa tus datos</h3>
                     <input
                       {...register("email")}
                       placeholder="Email"

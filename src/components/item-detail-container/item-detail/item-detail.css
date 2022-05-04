@@ -3,9 +3,8 @@
   flex-direction: row;
 
   width: 1000px;
-  height: 700px;
 
-  margin-bottom: 32px;
+  margin: 32px 0;
 
   color: #5e6282;
 
@@ -131,4 +130,24 @@
 
 .total {
   font-weight: bold;
+}
+
+.card-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-date,
+.input-cvc {
+  width: 49%;
+}
+
+.master-card-logo {
+  position: fixed;
+  bottom: 260px;
+  left: 580px;
+  width: 30px;
+  height: 25px;
+  background-color: #3f3f4e;
+  border-radius: 5px;
 }

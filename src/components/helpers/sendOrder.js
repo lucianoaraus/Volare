@@ -1,11 +1,12 @@
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 
 function sendOrder(fullOrderData) {
-  const { buyerData, bookingItem } = fullOrderData;
+  const { contactData, buyerData, bookingItem } = fullOrderData;
 
   console.log(`orden completa: ${fullOrderData}`);
 
   const order = {
+    contact: contactData,
     buyer: buyerData,
     items: bookingItem,
     totalPrice: bookingItem.nightPrice, // fix
