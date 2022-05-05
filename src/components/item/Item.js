@@ -21,11 +21,6 @@ function Item({ data }) {
     images,
   } = data;
 
-  //const totalPrice = () => {
-  //  return (checkOut - checkIn) * nightPrice;
-  //   WIP
-  //};
-
   return (
     <div className="card-item">
       <div className="left-side-card-item">

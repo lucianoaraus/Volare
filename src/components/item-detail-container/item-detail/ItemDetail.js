@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { sendOrder } from "../../helpers/sendOrder";
+import { sendOrder, getOrderByUser } from "../../helpers/sendOrder";
 import loading from "../../../assets/loading.gif";
 import "./item-detail.css";
 
@@ -28,7 +28,34 @@ const normalizeCVC = (value) => {
   );
 };
 
+// TODO:
 //const normalizeCardDate = (value) => {};
+
+const datesDifference = (date1, date2) => {
+  const dateDataType1 = new Date(date1);
+  const dateDataType2 = new Date(date2);
+
+  const date1UTC = Date.UTC(
+    dateDataType1.getFullYear(),
+    dateDataType1.getMonth(),
+    dateDataType1.getDate()
+  );
+  const date2UTC = Date.UTC(
+    dateDataType2.getFullYear(),
+    dateDataType2.getMonth(),
+    dateDataType2.getDate()
+  );
+
+  const day = 1000 * 60 * 60 * 24;
+
+  return (date2UTC - date1UTC) / day;
+};
+
+const totalPrice = (item) => {
+  const totalNights = datesDifference(item.checkIn, item.checkOut);
+  const nightPrice = item.nightPrice;
+  return nightPrice * totalNights;
+};
 
 function ItemDetail(props) {
   const { register, handleSubmit } = useForm();
@@ -65,7 +92,7 @@ function ItemDetail(props) {
   });
 
   const onSubmitContact = (e) => {
-    //al haber 2 setState el componente se renderiza x2, arreglar
+    //al haber 2 setState el componente se renderiza x2 -> arreglar
     setContactData(e);
   };
 
@@ -90,9 +117,6 @@ function ItemDetail(props) {
     );
   };
 
-  console.log(`contact ready?: ${contactReady()}`);
-  console.log(`payment ready?: ${paymentReady()}`);
-
   return (
     <>
       {data === undefined ? (
@@ -104,33 +128,36 @@ function ItemDetail(props) {
               {/* order resume */}
               <div className="ls-side-text">
                 <h2>Confirm and pay</h2>
-                <h3>Tu viaje</h3>
+                <h3>Your booking</h3>
                 <br />
                 <section className="ls-side-detail">
-                  <b>Fechas</b>
-                  26 de abr. al 4 de may.
+                  <b>Period</b>
+                  {bookingItem.checkIn} to {bookingItem.checkOut} (
+                  {datesDifference(bookingItem.checkIn, bookingItem.checkOut)}
+                  nights)
                 </section>
                 <br />
                 <section className="ls-side-detail">
-                  <b>Hora del Check-in</b>
+                  <b>Check-in hour</b>
                   13:00 - 17:00
                 </section>
                 <br />
                 <section className="ls-side-detail">
-                  <b>Viajeros</b>2 viajeros
+                  <b>Guests</b>
+                  {bookingItem.capacity} guests
                 </section>
                 <br />
                 {contactReady() ? (
                   paymentReady() ? (
                     <>
-                      <h3>Tus datos</h3>
+                      <h3>Your contact data</h3>
                       <p>First name: {firstName}</p>
                       <p>Last name: {lastName}</p>
                       <p>Email: {email}</p>
                       <p>Phone: {phoneNumber}</p>
 
                       <h3>Order id</h3>
-                      <p>as654d98as1d6a5s1d8asd</p>
+                      <p>{getOrderByUser()}</p>
                     </>
                   ) : (
                     <form
@@ -201,7 +228,7 @@ function ItemDetail(props) {
                         value="submit"
                         className="submit-button"
                       >
-                        Pay $157.731
+                        Pay ${totalPrice(bookingItem)}
                       </button>
                     </form>
                   )
@@ -210,7 +237,7 @@ function ItemDetail(props) {
                     onSubmit={handleSubmit(onSubmitContact)}
                     className="ls-side-detail form"
                   >
-                    <h3>Completa tus datos</h3>
+                    <h3>Contact data</h3>
                     <input
                       {...register("email")}
                       placeholder="Email"
@@ -254,23 +281,25 @@ function ItemDetail(props) {
                 className="img-detail"
               />
               <div className="side-text">
-                Habitacion del hotel
+                Hotel Room
                 <br />
-                <b>Habitacion Doble - Hotel Roma Italia</b>
+                <b>
+                  {bookingItem.type} - {bookingItem.hotelName}
+                </b>
                 <br />
                 <br />
-                <b>Detalle del precio</b>
+                <b>Price detail</b>
                 <section className="side-detail">
-                  <b>$52.577 por 3 noches</b>
-                  <b>$52.577</b>
+                  <b>${bookingItem.nightPrice} each night</b>
+                  <b>${bookingItem.nightPrice}</b>
                 </section>
                 <section className="side-detail">
-                  <u>Tarifa por servicio</u>
+                  <u>Service taxes</u>
                   <p>$0.00</p>
                 </section>
                 <section className="side-detail total">
                   <b>Total</b>
-                  <b>$157.731</b>
+                  <b>${totalPrice(bookingItem)}</b>
                 </section>
               </div>
             </div>

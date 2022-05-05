@@ -3,8 +3,6 @@ import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 function sendOrder(fullOrderData) {
   const { contactData, buyerData, bookingItem } = fullOrderData;
 
-  console.log(`orden completa: ${fullOrderData}`);
-
   const order = {
     contact: contactData,
     buyer: buyerData,
@@ -18,10 +16,14 @@ function sendOrder(fullOrderData) {
   addDoc(ordersCollection, order);
 }
 
-function getOrder(orderId) {
+function getOrderByUser() {
   const db = getFirestore();
   const ordersCollection = collection(db, "orders");
-  getDocs(ordersCollection).then((snapshot) => {});
+  getDocs(ordersCollection).then((snapshot) => {
+    const ordersArr = snapshot.docs;
+    const lastOrder = ordersArr[ordersArr.length - 1];
+    console.log("lastOrder: ", lastOrder.id); // id de la ultima compra realizada
+  });
 }
 
-export { sendOrder };
+export { sendOrder, getOrderByUser };
