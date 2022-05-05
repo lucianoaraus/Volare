@@ -1,61 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { sendOrder, getLastOrder } from "../../helpers/sendOrder";
-import loading from "../../../assets/loading.gif";
-import "./item-detail.css";
+import { sendOrder, getLastOrder } from "../../helpers/firebaseMethods";
 
-// payment
+import "./item-detail.css";
+import loading from "../../../assets/loading.gif";
+import loadingText from "../../../assets/loading-text.gif";
 import masterCard from "../../../assets/master-card.svg";
 
-const normalizeCardNumber = (value) => {
-  return (
-    value
-      .replace(/\s/g, "")
-      .match(/.{1,4}/g)
-      ?.join(" ")
-      .substr(0, 19) || ""
-  );
-};
+import {
+  datesDifference,
+  totalPrice,
+} from "../../helpers/calculation-functions/calculationFunctions";
 
-const normalizeCVC = (value) => {
-  return (
-    value
-      .replace(/\s/g, "")
-      .match(/.{1,4}/g)
-      ?.join(" ")
-      .substr(0, 3) || ""
-  );
-};
-
-// TODO:
-//const normalizeCardDate = (value) => {};
-
-const datesDifference = (date1, date2) => {
-  const dateDataType1 = new Date(date1);
-  const dateDataType2 = new Date(date2);
-
-  const date1UTC = Date.UTC(
-    dateDataType1.getFullYear(),
-    dateDataType1.getMonth(),
-    dateDataType1.getDate()
-  );
-  const date2UTC = Date.UTC(
-    dateDataType2.getFullYear(),
-    dateDataType2.getMonth(),
-    dateDataType2.getDate()
-  );
-
-  const day = 1000 * 60 * 60 * 24;
-
-  return (date2UTC - date1UTC) / day;
-};
-
-const totalPrice = (item) => {
-  const totalNights = datesDifference(item.checkIn, item.checkOut);
-  const nightPrice = item.nightPrice;
-  return nightPrice * totalNights;
-};
+import {
+  normalizeCardNumber,
+  normalizeCVC,
+} from "../../helpers/normalizers/cardInfoNormalizers";
 
 function ItemDetail(props) {
   const { register, handleSubmit } = useForm();
@@ -136,8 +97,12 @@ function ItemDetail(props) {
             <div className="ls-column">
               {/* order resume */}
               <div className="ls-side-text">
-                <h2>Confirm and pay</h2>
-                <h3>Your booking</h3>
+                {paymentReady() ? (
+                  <h2>Your resume</h2>
+                ) : (
+                  <h2>Confirm and pay</h2>
+                )}
+                <h3>Booking</h3>
                 <br />
                 <section className="ls-side-detail">
                   <b>Period</b>
@@ -159,22 +124,14 @@ function ItemDetail(props) {
                 {contactReady() ? (
                   paymentReady() ? (
                     <>
-                      <h3>Your contact data</h3>
+                      <h3>Contact data</h3>
                       <p>First name: {firstName}</p>
                       <p>Last name: {lastName}</p>
                       <p>Email: {email}</p>
                       <p>Phone: {phoneNumber}</p>
 
                       <h3>Order id</h3>
-                      {orderId ? (
-                        <p>{orderId}</p>
-                      ) : (
-                        <img
-                          src={loading}
-                          style={{ width: 400, height: 300 }}
-                          alt="loading"
-                        />
-                      )}
+                      {orderId ? <p>{orderId}</p> : <p>loading...</p>}
                     </>
                   ) : (
                     <form
@@ -217,10 +174,6 @@ function ItemDetail(props) {
                           placeholder="MM/YY"
                           type="tel"
                           className="form-input input-date"
-                          /* onChange={(event) => {
-                          const { value } = event.target;
-                          event.target.value = normalizeCardDate(value);
-                        }} */
                         />
                         <input
                           {...register("cvc")}

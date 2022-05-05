@@ -1,10 +1,8 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-//import ItemCount from "../item-list-container/item-count/ItemCount";
+import { totalPrice } from "../helpers/calculation-functions/calculationFunctions";
 
 import stars from "../../assets/stars.png";
-
 import "./item.css";
 
 function Item({ data }) {
@@ -47,7 +45,7 @@ function Item({ data }) {
       <div className="right-side-card-item">
         <p>Each night per bedroom</p>
         <h3>${nightPrice}</h3>
-        <p>Total Price $(totalPrice)</p>
+        <p>Total Price ${totalPrice(data)}</p>
         <p className="light-p">Taxes included</p>
         <Link to={`/booking/${id}`}>
           <button className="item-detail-button">View Details</button>
