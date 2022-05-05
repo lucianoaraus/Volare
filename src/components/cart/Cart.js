@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import CartWidgetContext from "../context/CartWidgetContext";
 
 import ItemCart from "../item-cart/ItemCart";
-import Modal from "../modal/Modal";
 
 function Cart() {
   //TODO: localStorage
@@ -10,12 +9,10 @@ function Cart() {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <h3>Cart</h3>
       <p>Your order here:</p>
       {reserveInt.map((rsv, i) => {
         return <ItemCart reserve={rsv} key={i} />;
       })}
-      <Modal />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { sendOrder, getOrderByUser } from "../../helpers/sendOrder";
+import { sendOrder, getLastOrder } from "../../helpers/sendOrder";
 import loading from "../../../assets/loading.gif";
 import "./item-detail.css";
 
@@ -73,6 +73,7 @@ function ItemDetail(props) {
     cvc: "",
     cardName: "",
   });
+  const [orderId, setOrderId] = useState("");
 
   const { firstName, lastName, email, phoneNumber } = contactData;
   const { buyerEmail, cardNumber, dueDate, cvc, cardName } = buyerData;
@@ -87,16 +88,24 @@ function ItemDetail(props) {
 
   const fullOrderData = { contactData, buyerData, bookingItem };
 
+  const getOrderId = async () => {
+    const lastOrderId = await getLastOrder();
+    setOrderId(lastOrderId);
+  };
+
   useEffect(() => {
-    orderReady && sendOrder(fullOrderData);
+    if (orderReady) {
+      sendOrder(fullOrderData);
+      getOrderId();
+    }
   });
 
   const onSubmitContact = (e) => {
-    //al haber 2 setState el componente se renderiza x2 -> arreglar
     setContactData(e);
   };
 
   const onSubmitPayment = (e) => {
+    //al haber 2 setState el componente se renderiza x2 -> arreglar
     setBuyerData(e);
     setOrderReady(true);
   };
@@ -157,7 +166,15 @@ function ItemDetail(props) {
                       <p>Phone: {phoneNumber}</p>
 
                       <h3>Order id</h3>
-                      <p>{getOrderByUser()}</p>
+                      {orderId ? (
+                        <p>{orderId}</p>
+                      ) : (
+                        <img
+                          src={loading}
+                          style={{ width: 400, height: 300 }}
+                          alt="loading"
+                        />
+                      )}
                     </>
                   ) : (
                     <form

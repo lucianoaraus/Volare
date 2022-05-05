@@ -16,14 +16,15 @@ function sendOrder(fullOrderData) {
   addDoc(ordersCollection, order);
 }
 
-function getOrderByUser() {
+const getLastOrder = async () => {
   const db = getFirestore();
   const ordersCollection = collection(db, "orders");
-  getDocs(ordersCollection).then((snapshot) => {
+  const lastOrderId = await getDocs(ordersCollection).then((snapshot) => {
     const ordersArr = snapshot.docs;
     const lastOrder = ordersArr[ordersArr.length - 1];
-    console.log("lastOrder: ", lastOrder.id); // id de la ultima compra realizada
+    return lastOrder.id;
   });
-}
+  return lastOrderId;
+};
 
-export { sendOrder, getOrderByUser };
+export { sendOrder, getLastOrder };
