@@ -48,7 +48,11 @@ function ItemListContainer() {
     <div className="item-list-container-parent">
       <h3>Made for you</h3>
       {filterByGuests(guestsQuantity).length === 0 ? (
-        <img src={loading} alt="loading" style={{ width: 400, height: 300 }} />
+        <img
+          src={loading}
+          alt="loading"
+          style={{ width: 400, height: 300, margin: 100 }}
+        />
       ) : (
         <ItemList products={filterByGuests(guestsQuantity)} />
       )}
