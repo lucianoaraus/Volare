@@ -46,12 +46,6 @@
   flex-direction: column;
 }
 
-<<<<<<< HEAD
-  line-height: 0.5;
-  height: 40%;
-  background-color: #fff;
-  border-radius: 0px 0px 0px 24px;
-=======
 .form > h3 {
   font-size: 18px;
   font-weight: bolder;
@@ -95,7 +89,6 @@
   color: #fff;
   border-radius: 8px;
   background-color: #3011bc;
->>>>>>> develop
 }
 
 /* rs parent */
@@ -103,17 +96,12 @@
   display: flex;
   justify-content: center;
   width: 30%;
-<<<<<<< HEAD
-  border-radius: 0px 24px 24px 0px;
-  background-color: #e5e5e570;
-=======
   padding-top: 30px;
   border-radius: 0px 24px 24px 0px;
 
   font-size: 14px;
 
   background-color: #e5e5e5;
->>>>>>> develop
 }
 
 .rs-column {
