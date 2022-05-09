@@ -20,41 +20,13 @@ function BookingItemSelector() {
   const { addDestination, addCheckInDate, addCheckOutDate, guestsQuantity } =
     useContext(BookingQueryContext);
 
-  // form query:
-  //const [destination, setDestination] = useState("");
-  //const [checkInDate, setCheckInDate] = useState("");
-  //const [checkOutDate, setCheckOutDate] = useState("");
-
-  // WIP:
-  /*
-  const [query, setQuery] = useState({
-    queryDestination: "",
-    queryCheckInDate: "",
-    queryCheckOutDate: "",
-    queryGuests: "",
-  });
-
-  const handleSubmit = () => {
-    setQuery({
-      queryDestination: "",
-      queryCheckInDate: "",
-      queryCheckOutDate: "",
-      queryGuests: "",
-    });
-  };
-  */
-
   const notGuestsEnought = () => {
-    // TODO: arreglar esto
     0 < guestsQuantity && guestsQuantity < 5
       ? navigate("/booking/items")
       : alert(
           "You must to add a valid quantity of Guests (for example 2 or 4)"
         );
   };
-
-  // TODO: Implementar el seteo de datos mediante un form (?)
-  // ERR! -> Form submission canceled because the form is not connected
 
   return (
     <div className="item-selector-container">

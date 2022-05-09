@@ -5,7 +5,6 @@ import { sendOrder, getLastOrder } from "../../helpers/firebaseMethods";
 
 import "./item-detail.css";
 import loading from "../../../assets/loading.gif";
-import loadingText from "../../../assets/loading-text.gif";
 import masterCard from "../../../assets/master-card.svg";
 
 import {
@@ -90,7 +89,11 @@ function ItemDetail(props) {
   return (
     <>
       {data === undefined ? (
-        <img src={loading} style={{ width: 400, height: 300 }} alt="loading" />
+        <img
+          src={loading}
+          style={{ width: 400, height: 300, margin: 100 }}
+          alt="loading"
+        />
       ) : (
         <div className="item-detail-child-container">
           <div className="left-side-container">
