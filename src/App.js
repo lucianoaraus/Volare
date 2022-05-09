@@ -23,7 +23,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route exact path="/login" element={<></>} /> {/* Pending */}
+          {/*<Route exact path="/login" element={<></>} />  Pending */}
+          {/*<Route exact path="/*" element={<></>} />  Pending */}
           <Route exact path="/" element={<Booking />} />
           <Route exact path="/booking" element={<Booking />} />
           <Route exact path="/flights" element={<Flights />} />
