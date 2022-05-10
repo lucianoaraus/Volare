@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import ItemDetail from "./item-detail/ItemDetail";
+
 import "./item-detail-container.css";
 
 function ItemDetailContainer() {

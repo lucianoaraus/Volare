@@ -23,9 +23,9 @@
 .left-side-card-item > img {
   display: flex;
 
-  /* 24,4% del container */
   width: 264px;
   height: 264px;
+  object-fit: cover;
 
   border-radius: 24px 0 0 24px;
 }
@@ -34,7 +34,6 @@
 .mid-side-card-item {
   display: flex;
 
-  /* 45,5% del container */
   width: 492px;
   height: 264px;
   margin: 8px 20px;
@@ -72,7 +71,6 @@
   display: flex;
   flex-direction: column;
 
-  /* 30% del container */
   width: 324px;
   height: 264px;
 

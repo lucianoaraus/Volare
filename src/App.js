@@ -12,6 +12,7 @@ import Packages from "./components/pages/Packages";
 
 import ItemListContainer from "./components/item-list-container/ItemListContainer";
 import ItemDetailContainer from "./components/item-detail-container/ItemDetailContainer";
+import OrderConfirmation from "./components/order-confirmation/OrderConfirmation";
 
 import "./App.css";
 
@@ -31,6 +32,11 @@ function App() {
           <Route exact path="/packages" element={<Packages />} />
           <Route exact path="/booking/items" element={<ItemListContainer />} />
           <Route exact path="/booking/:id" element={<ItemDetailContainer />} />
+          <Route
+            exact
+            path="/booking/:id/order-confirmation"
+            element={<OrderConfirmation />}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>
