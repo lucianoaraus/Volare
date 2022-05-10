@@ -1,0 +1,103 @@
+.order-parent-container {
+  display: flex;
+  justify-content: center;
+}
+
+.order-confirmation-child-container {
+  display: flex;
+
+  width: 1000px;
+  margin: 32px 0;
+
+  color: #5e6282;
+
+  border-radius: 24px 2.5px 24px 2.5px;
+  filter: drop-shadow(0px 10px 12px #00000026);
+}
+
+.form > h3 {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.form-input {
+  width: 100%;
+  height: 50px;
+
+  margin: 4px 0;
+  padding: 8px;
+
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+}
+
+.input-name {
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  margin: 0;
+}
+
+.input-lastname {
+  border-radius: 0 0 8px 8px;
+  margin: 0;
+}
+
+::placeholder {
+  color: #aeb0c0;
+}
+
+.img-resume {
+  display: flex;
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 24px;
+}
+
+.right-side-order-container {
+  display: flex;
+  justify-content: center;
+
+  width: 30%;
+  padding-top: 30px;
+  border-radius: 0px 24px 24px 0px;
+
+  font-size: 14px;
+
+  background-color: #e5e5e5;
+}
+
+.side-text {
+  width: 230px;
+}
+
+.side-detail {
+  font-weight: 100;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total {
+  font-weight: bold;
+}
+
+.card-information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-date,
+.input-cvc {
+  width: 49%;
+}
+
+.master-card-logo {
+  position: fixed;
+  bottom: 260px;
+  left: 580px;
+  width: 30px;
+  height: 25px;
+  background-color: #3f3f4e;
+  border-radius: 5px;
+}

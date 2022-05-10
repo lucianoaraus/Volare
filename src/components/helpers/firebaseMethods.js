@@ -1,19 +1,11 @@
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 
 function sendOrder(fullOrderData) {
-  const { contactData, buyerData, bookingItem } = fullOrderData;
-
-  const order = {
-    contact: contactData,
-    buyer: buyerData,
-    items: bookingItem,
-    totalPrice: bookingItem.nightPrice, // fix
-  };
   const db = getFirestore();
 
   const ordersCollection = collection(db, "orders");
 
-  addDoc(ordersCollection, order);
+  addDoc(ordersCollection, fullOrderData);
 }
 
 const getLastOrder = async () => {
