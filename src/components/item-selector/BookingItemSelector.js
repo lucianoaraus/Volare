@@ -5,7 +5,7 @@ import MenuGuests from "../guests/MenuGuests";
 import DatePickerSelector from "../date-picker/DatePickerSelector";
 
 //Const
-import ERROR_TYPES from "../../const/constants";
+import { ERROR_TYPES } from "../error/constants";
 
 //Context
 import BookingQueryContext from "../context/BookingQueryContext";
@@ -25,14 +25,14 @@ function BookingItemSelector() {
   const { addDestination, addCheckInDate, addCheckOutDate, guestsQuantity } =
     useContext(BookingQueryContext);
 
-  const { handleError, resetError } = useContext(ErrorContext);
+  const { handleError, cleanError } = useContext(ErrorContext);
 
   const notGuestsEnought = () => {
     if (0 < guestsQuantity && guestsQuantity < 5) {
       navigate("/booking/items");
-      resetError();
+      cleanError();
     } else {
-      handleError(ERROR_TYPES.Quantity);
+      handleError({ type: ERROR_TYPES.Quantity, data: "jose" });
     }
   };
 

@@ -10,14 +10,14 @@ const ErrorProvider = ({ children }) => {
     setError(err);
   };
 
-  const resetError = () => {
+  const cleanError = () => {
     setError(null);
   };
 
   const data = {
     error,
     handleError,
-    resetError,
+    cleanError,
   };
 
   return <ErrorContext.Provider value={data}>{children}</ErrorContext.Provider>;
