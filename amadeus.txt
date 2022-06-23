@@ -1,0 +1,9 @@
+https://github.com/amadeus4dev/amadeus-node/tree/18a11887caf238887e3b5165bd08c59deb6fe00f
+-
+shopping.js: https://github.com/amadeus4dev/amadeus-node/blob/18a11887caf238887e3b5165bd08c59deb6fe00f/src/amadeus/namespaces/shopping.js#L36
+---
+https://developers.amadeus.com/self-service/category/hotel/api-doc/hotel-booking
+---
+https://developers.amadeus.com/blog/react-hotel-booking-app-part1
+https://developers.amadeus.com/blog/react-hotel-booking-app-part2
+

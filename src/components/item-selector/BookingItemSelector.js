@@ -1,10 +1,15 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import MenuGuests from "../guests/MenuGuests";
-import BookingQueryContext from "../context/BookingQueryContext";
 import DatePickerSelector from "../date-picker/DatePickerSelector";
 
-import { useNavigate } from "react-router-dom";
+//Const
+import ERROR_TYPES from "../../const/constants";
+
+//Context
+import BookingQueryContext from "../context/BookingQueryContext";
+import ErrorContext from "../context/ErrorContext";
 
 //Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -20,12 +25,15 @@ function BookingItemSelector() {
   const { addDestination, addCheckInDate, addCheckOutDate, guestsQuantity } =
     useContext(BookingQueryContext);
 
+  const { handleError, resetError } = useContext(ErrorContext);
+
   const notGuestsEnought = () => {
-    0 < guestsQuantity && guestsQuantity < 5
-      ? navigate("/booking/items")
-      : alert(
-          "You must to add a valid quantity of Guests (for example 2 or 4)"
-        );
+    if (0 < guestsQuantity && guestsQuantity < 5) {
+      navigate("/booking/items");
+      resetError();
+    } else {
+      handleError(ERROR_TYPES.Quantity);
+    }
   };
 
   return (

@@ -1,15 +1,16 @@
-
-import React from "react"
-import Headline from "../headline/Headline"
-import BookingItemSelector from "../item-selector/BookingItemSelector"
+import React from "react";
+import Headline from "../headline/Headline";
+import Error from "../error";
+import BookingItemSelector from "../item-selector/BookingItemSelector";
 
 function Booking() {
-  return(
+  return (
     <>
-      <Headline/>
-      <BookingItemSelector/>
+      <Headline />
+      <BookingItemSelector />
+      <Error />
     </>
-  )
+  );
 }
 
 export default Booking;

@@ -1,0 +1,15 @@
+.error-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  margin-bottom: 24px;
+}
+
+.error-text {
+  color: #3011bc;
+  padding: 12px;
+
+  border: 2px solid #3011bc;
+  border-radius: 8px;
+}
