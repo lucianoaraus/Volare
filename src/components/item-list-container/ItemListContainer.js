@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import BookingQueryContext from "../context/BookingQueryContext";
+import BookingQueryContext from "../../context/BookingQueryContext";
 import ItemList from "../item-list-container/item-list/ItemList";
 import loading from "../../assets/loading.gif";
 import { collection, getDocs, getFirestore } from "firebase/firestore";

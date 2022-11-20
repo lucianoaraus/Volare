@@ -32,7 +32,6 @@ function OrderConfirmation() {
     cardName: "",
   });
   const [orderId, setOrderId] = useState("");
-
   const { firstName, lastName, email, phoneNumber } = contactData;
   const { buyerEmail, cardNumber, dueDate, cvc, cardName } = buyerData;
   const { id } = useParams();

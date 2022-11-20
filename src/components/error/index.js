@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ErrorContext from "../context/ErrorContext";
+import ErrorContext from "../../context/ErrorContext";
 import { getMessageFromError } from "./constants";
 import "./error.css";
 
@@ -9,7 +9,7 @@ export default function Error() {
   return (
     <>
       {error && (
-        <div className="error-container">
+        <div className="error-container" data-testid="current-error">
           <h3 className="error-text">{getMessageFromError(error)}</h3>
         </div>
       )}

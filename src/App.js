@@ -1,6 +1,6 @@
 import React from "react";
-import { BookingQueryProvider } from "./components/context/BookingQueryContext";
-import { ErrorProvider } from "./components/context/ErrorContext";
+import { BookingQueryProvider } from "./context/BookingQueryContext";
+import { ErrorProvider } from "./context/ErrorContext";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

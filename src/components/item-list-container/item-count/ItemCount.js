@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import BookingQueryContext from "../../context/BookingQueryContext";
+import BookingQueryContext from "../../../context/BookingQueryContext";
 
 import "../item-list-container.css";
 

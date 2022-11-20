@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import ItemCount from "../item-list-container/item-count/ItemCount";
-import BookingQueryContext from "../context/BookingQueryContext";
+import BookingQueryContext from "../../context/BookingQueryContext";
 
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";

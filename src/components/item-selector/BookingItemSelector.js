@@ -8,8 +8,8 @@ import DatePickerSelector from "../date-picker/DatePickerSelector";
 import { ERROR_TYPES } from "../error/constants";
 
 //Context
-import BookingQueryContext from "../context/BookingQueryContext";
-import ErrorContext from "../context/ErrorContext";
+import BookingQueryContext from "../../context/BookingQueryContext";
+import ErrorContext from "../../context/ErrorContext";
 
 //Icons
 import LocationOnIcon from "@mui/icons-material/LocationOn";
