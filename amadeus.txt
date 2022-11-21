@@ -7,3 +7,4 @@ https://developers.amadeus.com/self-service/category/hotel/api-doc/hotel-booking
 https://developers.amadeus.com/blog/react-hotel-booking-app-part1
 https://developers.amadeus.com/blog/react-hotel-booking-app-part2
 
+---
