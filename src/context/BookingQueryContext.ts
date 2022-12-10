@@ -3,20 +3,20 @@ import { createContext, useState } from "react";
 const BookingQueryContext = createContext();
 
 const BookingQueryProvider = ({ children }) => {
-  const [destination, setDestination] = useState("");
-  const [checkInDate, setCheckInDate] = useState("");
-  const [checkOutDate, setCheckOutDate] = useState("");
-  const [guestsQuantity, setguestsQuantity] = useState(0);
+  const [destination, setDestination] = useState<string>("");
+  const [checkInDate, setCheckInDate] = useState<string>("");
+  const [checkOutDate, setCheckOutDate] = useState<string>("");
+  const [guestsQuantity, setguestsQuantity] = useState<number>(0);
 
-  const addDestination = (dest) => {
+  const addDestination = (dest: string) => {
     setDestination(dest);
   };
 
-  const addCheckInDate = (date) => {
+  const addCheckInDate = (date: string) => {
     setCheckInDate(date);
   };
 
-  const addCheckOutDate = (date) => {
+  const addCheckOutDate = (date: string) => {
     setCheckOutDate(date);
   };
 
